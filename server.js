@@ -29,7 +29,14 @@ io.on('connection', function(socket) {
   });
 });
 
-redis.psubscribe('*', function(err, count) {
+io.on('android response',function(msg){
+  console.log(msg);
+  io.emit('admin',msg);
+});
+io.on('Toast Receieved',function(msg){
+  console.log(msg);
+  io.emit('admin',msg);
+});redis.psubscribe('*', function(err, count) {
     //
 });
 
