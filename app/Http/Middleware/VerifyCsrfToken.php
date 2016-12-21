@@ -14,6 +14,7 @@ class VerifyCsrfToken extends BaseVerifier
     protected $except = [
         //
         'audio-upload',
-        'post-gps'
+        'post-gps',
+        'post-battery'
     ];
 }
