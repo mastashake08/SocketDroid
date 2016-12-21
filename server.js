@@ -18,6 +18,7 @@ io.on('connection', function(socket) {
     console.log('Connected');
     io.emit("event","camera");
     io.emit("event","toast");
+    io.emit("event","gps");
 
 });
 io.on('disconnect', function(socket) {
