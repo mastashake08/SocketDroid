@@ -26,3 +26,4 @@ Route::get('/download/{filename}','AudioController@download');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+Route::post('/post-gps','GpsController@postGps');
