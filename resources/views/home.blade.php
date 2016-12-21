@@ -87,6 +87,7 @@ function initMap(lat,long) {
       recognition.lang = 'en-US';
       recognition.interimResults = false;
       recognition.maxAlternatives = 1;
+      recognition.continuous = true;
       recognition.onresult = function(event) {
   var command = event.results[0][0].transcript;
   console.log(command);
