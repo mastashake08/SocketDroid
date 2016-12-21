@@ -88,7 +88,7 @@ for (var i = 0; i < battery.length; i++) {
 });
 }
 for (var i = 0; i < images.length; i++) {
-    battery[i].addEventListener('click', function(){
+    images[i].addEventListener('click', function(){
       $.get("http://socket.jyroneparker.com/command/camera/" + $(this).data('id'), function(data, status){
 
         }, false);
