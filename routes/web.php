@@ -27,3 +27,4 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::post('/post-gps','GpsController@postGps');
+Route::resource('gps','GpsController');
