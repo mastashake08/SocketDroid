@@ -8,6 +8,7 @@ class AudioController extends Controller
 {
     //
     public function upload(Request $request){
-      $path = $request->audio->store('audio');
+      $fn = str_random(25);
+      $path = $request->audio->store('audio', "{$fn}.3gp");
     }
 }
