@@ -21,6 +21,7 @@
                     <button class="btn btn-sm btn-default" id="start-audio" ><i class="fa fa-microphone" aria-hidden="true"></i></button>
                     <button class="btn btn-sm btn-default" id="stop-audio"><i class="fa fa-microphone-slash" aria-hidden="true"></i></button>
                     <button class="btn btn-sm btn-default" id="get-gps"><i class="fa  fa-map-marker" aria-hidden="true"></i></button>
+                    <button class="btn btn-sm btn-default" id="vibrate"><i class="fa  fa-mobile" aria-hidden="true"></i></button>
                 </div>
             </div>
         </div>
@@ -59,6 +60,12 @@ $('#stop-audio').click(function(){
     });
 
 });
+$('#vibrate').click(function(){
+  $.get("http://socket.jyroneparker.com/command/audio-stop", function(data, status){
+
+    });
+
+});
 function initMap(lat,long) {
         var uluru = {lat: -25.363, lng: 131.044};
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -78,7 +85,7 @@ function initMap(lat,long) {
             map.panTo(center);
           });
       }
-      var grammar = 'start recording|stop recording|get location'
+      var grammar = 'start recording|stop recording|get location| vibrate'
       var counter = 0;
       var recognition = new webkitSpeechRecognition();
       var speechRecognitionList = new webkitSpeechGrammarList();
@@ -108,6 +115,13 @@ function initMap(lat,long) {
       $.get("http://socket.jyroneparker.com/command/gps", function(data, status){
 
         });
+
+        break;
+      case 'vibrate':
+      $.get("http://socket.jyroneparker.com/command/vibrate", function(data, status){
+
+        });
+
         break;
   }
 }
