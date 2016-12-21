@@ -23,7 +23,7 @@
     <tbody>
       @foreach(auth()->user()->devices as $device)
       <tr>
-        <td>{{$device->number}}</td>
+        <td>{{$device->phone}}</td>
         <td>
         <button data-id="{{$device->number}}" class="btn btn-sm btn-default" id="start-audio" ><i class="fa fa-microphone" aria-hidden="true"></i></button>
         <button data-id="{{$device->number}}" class="btn btn-sm btn-default" id="stop-audio"><i class="fa fa-microphone-slash" aria-hidden="true"></i></button>
