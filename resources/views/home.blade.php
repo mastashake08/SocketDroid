@@ -63,8 +63,11 @@ function initMap(lat,long) {
         });
         var socket = io.connect('http://socket.jyroneparker.com:6001');
           socket.on('gps', function (data) {
-            console.log(data);
-            marker.setPosition({lat:Number(data.data.gps.lat),lng:Number(data.data.gps.long)});
+            var center = {lat:Number(data.data.gps.lat),lng:Number(data.data.gps.long)};
+            marker.setPosition(center);
+        
+            // using global variable:
+            map.panTo(center);
           });
       }
 
