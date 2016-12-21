@@ -16,10 +16,10 @@ function handler(req, res) {
 io.on('connection', function(socket) {
     //
     console.log('Connected');
-    
+
 
 });
-io.on('disconnect', function(socket) {
+io.on('disconnected', function(socket) {
     //
     console.log('Disconnected');
 
@@ -31,5 +31,6 @@ redis.psubscribe('*', function(err, count) {
 
 redis.on('pmessage', function(subscribed, channel, message) {
     message = JSON.parse(message);
+    console.log(message);
     io.emit(channel , message.data);
 });
