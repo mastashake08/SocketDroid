@@ -76,20 +76,20 @@ $('#start-audio').click(function(){
 
 });
 $('#get-gps').click(function(){
-  $.get("http://socket.jyroneparker.com/command/gps"+$('#get-gps').data('id'), function(data, status){
+  $.get("http://socket.jyroneparker.com/command/gps/"+$('#get-gps').data('id'), function(data, status){
 
     });
 
 });
 
 $('#stop-audio').click(function(){
-  $.get("http://socket.jyroneparker.com/command/audio-stop"+$('#stop-audio').data('id'), function(data, status){
+  $.get("http://socket.jyroneparker.com/command/audio-stop/"+$('#stop-audio').data('id'), function(data, status){
 
     });
 
 });
 $('#vibrate').click(function(){
-  $.get("http://socket.jyroneparker.com/command/vibrate"+$('#vibrate').data('id'), function(data, status){
+  $.get("http://socket.jyroneparker.com/command/vibrate/"+$('#vibrate').data('id'), function(data, status){
 
     });
 
