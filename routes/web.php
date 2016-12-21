@@ -17,3 +17,6 @@ Route::get('/', function () {
 Route::get('/command/{command}', function($command){
   event(new \App\Events\SendCommand($command));
 });
+Route::get('/response',function(){
+  event(new \App\Events\SendResponse());
+});

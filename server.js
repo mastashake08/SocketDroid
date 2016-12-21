@@ -16,20 +16,9 @@ function handler(req, res) {
 io.on('connection', function(socket) {
     //
     console.log('Connected');
-    console.log(socket);
     socket.on('disconnect', function(){
     console.log('user disconnected');
-    socket.on('android response',function(msg){
-      console.log(msg);
-      io.emit('admin',msg);
-    });
-    socket.on('Toast Receieved',function(msg){
-      console.log(msg);
-      io.emit('admin',msg);
-    });
-    socket.on('test',function(msg){
-      console.log(msg);
-    });
+
   });
 });
 
@@ -45,6 +34,9 @@ io.on('Toast Receieved',function(msg){
 });
 
 redis.on('pmessage', function(subscribed, channel, message) {
+  if(channel == 'android-response'){
+    io.emit('response',"Message Receieved");
+  }
     message = JSON.parse(message);
     console.log(message);
     io.emit(channel , message.data.command);
