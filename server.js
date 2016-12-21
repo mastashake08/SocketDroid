@@ -18,13 +18,13 @@ io.on('connection', function(socket) {
     console.log('Connected');
     socket.on('disconnect', function(){
     console.log('user disconnected');
-    socket.on('android-response',function(msg){
-      console.log(msg);
-      io.emit('admin',msg);
-    });
+
   });
 });
-
+io.on('android-response',function(msg){
+  console.log(msg);
+  io.emit('admin',msg);
+});
 redis.psubscribe('*', function(err, count) {
     //
 });
