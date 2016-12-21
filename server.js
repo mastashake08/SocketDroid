@@ -35,10 +35,17 @@ io.on('Toast Receieved',function(msg){
 
 redis.on('pmessage', function(subscribed, channel, message) {
   if(channel == 'android-response'){
+    if(message.data.gps != null){
+      io.emit('response',message.data);
+    }
+    else{
     console.log("Message Receieved");
     io.emit('response',"Message Receieved");
+    }
   }
+  else{
     message = JSON.parse(message);
     console.log(message);
     io.emit(channel , message.data.command);
+  }
 });
