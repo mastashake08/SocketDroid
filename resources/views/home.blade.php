@@ -94,12 +94,12 @@ function initMap(lat,long) {
   console.log(command);
   counter++;
   switch(command){
-    case 'start audio':
+    case 'start recording':
     $.get("http://socket.jyroneparker.com/command/audio-start", function(data, status){
 
       });
       break;
-      case 'stop audio':
+      case 'stop recording':
       $.get("http://socket.jyroneparker.com/command/audio-stop", function(data, status){
 
         });
