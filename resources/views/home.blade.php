@@ -54,7 +54,7 @@ $('#stop-audio').click(function(){
 function initMap(lat,long) {
         var uluru = {lat: -25.363, lng: 131.044};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
+          zoom: 15,
           center: uluru
         });
         var marker = new google.maps.Marker({
@@ -65,7 +65,7 @@ function initMap(lat,long) {
           socket.on('gps', function (data) {
             var center = {lat:Number(data.data.gps.lat),lng:Number(data.data.gps.long)};
             marker.setPosition(center);
-        
+
             // using global variable:
             map.panTo(center);
           });
