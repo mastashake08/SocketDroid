@@ -91,7 +91,7 @@ function initMap(lat,long) {
       recognition.continuous = true;
       recognition.onresult = function(event) {
   var command = event.results[counter][0].transcript;
-  console.log(command);
+  console.log(event.results[counter][0]);
   counter++;
   switch(command){
     case 'start audio':
