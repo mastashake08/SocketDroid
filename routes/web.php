@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/command/{command}', function($command){
+  event(new \App\Events\SendCommand($command));
+});
