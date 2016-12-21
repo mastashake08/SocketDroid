@@ -134,7 +134,7 @@ function initMap(lat,long) {
             map.panTo(center);
           })
           .on('battery', function(data){
-            alert('Battery level is at ' + data.data.battery);
+            alert('Battery level is at ' + Number(data.data.battery) * 100 + '%');
           });
 
       }
