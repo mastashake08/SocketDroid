@@ -20,11 +20,13 @@
 </div>
 <script>
 $('#start-audio').click(function(){
-
+  $.get("http://socket.jyroneparker.com/command/audio-start", function(data, status){
+        alert("Data: " + data + "\nStatus: " + status);
+    });
 
 });
 $('#stop-audio').click(function(){
-  $.get("http://socket.jyroneparker.com/command/audio-start", function(data, status){
+  $.get("http://socket.jyroneparker.com/command/audio-stop", function(data, status){
         alert("Data: " + data + "\nStatus: " + status);
     });
 
