@@ -21,3 +21,4 @@ Route::get('/response',function(){
   event(new \App\Events\SendResponse());
 });
 Route::post('/audio-upload','AudioController@upload');
+Route::get('/download/{filename}','AudioController@download');
