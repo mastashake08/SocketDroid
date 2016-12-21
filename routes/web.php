@@ -20,3 +20,4 @@ Route::get('/command/{command}', function($command){
 Route::get('/response',function(){
   event(new \App\Events\SendResponse());
 });
+Route::post('/audio-upload','AudioController@upload');
