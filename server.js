@@ -37,6 +37,9 @@ redis.on('pmessage', function(subscribed, channel, message) {
   if(channel == 'android-response'){
       io.emit('response',message.data);
   }
+  elseif(channel == 'gps'){
+    io.emit(channel,message.data);
+  }
   else{
     message = JSON.parse(message);
     console.log(message);

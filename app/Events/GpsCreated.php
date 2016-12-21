@@ -31,6 +31,6 @@ class GpsCreated implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel('android-response');
+        return new Channel('gps');
     }
 }
