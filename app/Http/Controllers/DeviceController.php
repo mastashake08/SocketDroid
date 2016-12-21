@@ -18,7 +18,7 @@ class DeviceController extends Controller
     public function uploadImage(Request $request){
       \Log::info($request->image);
       $fn = str_random(25);
-      $path = $request->image>storeAs('images', "{$fn}.png");
+      $path = $request->image->storeAs('images', "{$fn}.png");
       $user = \App\User::all();
       $user->each(function($item, $key) use($fn){
         $item->notify(new \App\Notifications\ImageUploaded($fn));
