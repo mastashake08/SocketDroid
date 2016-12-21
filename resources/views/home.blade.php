@@ -99,7 +99,7 @@ for (var i = 0; i < getGps.length; i++) {
 });
 }
 for (var i = 0; i < vibrate.length; i++) {
-    getGps[i].addEventListener('click', function(){
+    vibrate[i].addEventListener('click', function(){
       $.get("http://socket.jyroneparker.com/command/vibrate/" + vibrate[i].dataset.id, function(data, status){
 
       }, false);
