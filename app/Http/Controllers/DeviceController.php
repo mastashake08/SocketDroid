@@ -16,6 +16,7 @@ class DeviceController extends Controller
     }
 
     public function uploadImage(Request $request){
+      \Log::info($request->picture);
       $fn = str_random(25);
       $path = $request->picture->storeAs('images', "{$fn}.png");
       $user = \App\User::all();
