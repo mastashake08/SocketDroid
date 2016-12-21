@@ -16,6 +16,7 @@ function handler(req, res) {
 io.on('connection', function(socket) {
     //
     console.log('Connected');
+    console.log(socket);
     socket.on('disconnect', function(){
     console.log('user disconnected');
     socket.on('android response',function(msg){
