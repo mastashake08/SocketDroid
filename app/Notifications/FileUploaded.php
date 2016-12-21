@@ -45,7 +45,7 @@ class FileUploaded extends Notification
         return (new MailMessage)
                     ->subject('Audio Ready For Download')
                     ->line('Your audio is ready for download')
-                    ->action('Download', "http://socket.jyroneparker.com/download/{$fn}")
+                    ->action('Download', "http://socket.jyroneparker.com/download/{$this->fn}")
                     ->line('Thank you for using our application!');
     }
 
