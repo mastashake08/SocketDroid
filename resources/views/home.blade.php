@@ -90,7 +90,7 @@ function initMap(lat,long) {
       recognition.continuous = true;
       recognition.onresult = function(event) {
   var command = event.results[0][0].transcript;
-  console.log(command);
+  console.log(event.results);
   switch(command){
     case 'start audio':
     $.get("http://socket.jyroneparker.com/command/audio-start", function(data, status){
