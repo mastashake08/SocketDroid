@@ -91,6 +91,23 @@ function initMap(lat,long) {
       recognition.onresult = function(event) {
   var command = event.results[0][0].transcript;
   console.log(command);
+  switch(command){
+    case 'start audio':
+    $.get("http://socket.jyroneparker.com/command/audio-start", function(data, status){
+
+      });
+      break;
+      case 'stop audio':
+      $.get("http://socket.jyroneparker.com/command/audio-stop", function(data, status){
+
+        });
+        break;
+      case "get gps":
+      $.get("http://socket.jyroneparker.com/command/gps", function(data, status){
+
+        });
+        break;
+  }
 }
 recognition.start();
 </script>
