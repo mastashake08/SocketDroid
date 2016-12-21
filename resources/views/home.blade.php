@@ -20,6 +20,7 @@
                 <div class="panel-body">
                     <button class="btn btn-sm btn-default" id="start-audio" ><i class="fa fa-microphone" aria-hidden="true"></i></button>
                     <button class="btn btn-sm btn-default" id="stop-audio"><i class="fa fa-microphone-slash" aria-hidden="true"></i></button>
+                    <button class="btn btn-sm btn-default" id="get-gps"><i class="fa  fa-map-marker" aria-hidden="true"></i></button>
                 </div>
             </div>
         </div>
@@ -41,13 +42,20 @@
 
 $('#start-audio').click(function(){
   $.get("http://socket.jyroneparker.com/command/audio-start", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
+
     });
 
 });
+$('#get-gps').click(function(){
+  $.get("http://socket.jyroneparker.com/command/gps", function(data, status){
+
+    });
+
+});
+
 $('#stop-audio').click(function(){
   $.get("http://socket.jyroneparker.com/command/audio-stop", function(data, status){
-        alert("Data: " + data + "\nStatus: " + status);
+        
     });
 
 });
