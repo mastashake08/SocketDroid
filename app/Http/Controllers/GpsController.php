@@ -12,4 +12,8 @@ class GpsController extends Controller
       event(new \App\Events\GpsCreated($gps));
       return $gps;
     }
+
+    public function index(){
+      return Gps::all();
+    }
 }
