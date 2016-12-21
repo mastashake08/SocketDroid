@@ -18,10 +18,20 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    <button class="btn btn-sm btn-default" id="start-audio" ><i class="fa fa-microphone" aria-hidden="true"></i></button>
-                    <button class="btn btn-sm btn-default" id="stop-audio"><i class="fa fa-microphone-slash" aria-hidden="true"></i></button>
-                    <button class="btn btn-sm btn-default" id="get-gps"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-                    <button class="btn btn-sm btn-default" id="vibrate"><i class="fa fa-mobile" aria-hidden="true"></i></button>
+                  <table class="table">
+
+    <tbody>
+
+      <tr>
+        <td>{{$device->number}}</td>
+        <button data-id="{{$device->number}}" class="btn btn-sm btn-default" id="start-audio" ><i class="fa fa-microphone" aria-hidden="true"></i></button>
+        <button data-id="{{$device->number}}" class="btn btn-sm btn-default" id="stop-audio"><i class="fa fa-microphone-slash" aria-hidden="true"></i></button>
+        <button data-id="{{$device->number}}" class="btn btn-sm btn-default" id="get-gps"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
+        <button data-id="{{$device->number}}" class="btn btn-sm btn-default" id="vibrate"><i class="fa fa-mobile" aria-hidden="true"></i></button>
+      </tr>
+    </tbody>
+  </table>
+
                 </div>
             </div>
         </div>
@@ -37,31 +47,45 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Add Phone</div>
+
+                <div class="panel-body">
+                    <form method="post" action="/device">
+                      {{ csrf_field() }}
+                      <input type="tel" name="phone" placeholder="Phone Number">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <script>
 
 $('#start-audio').click(function(){
-  $.get("http://socket.jyroneparker.com/command/audio-start", function(data, status){
+  $.get("http://socket.jyroneparker.com/command/audio-start/" + $('#start-audio').data('id'), function(data, status){
 
     });
 
 });
 $('#get-gps').click(function(){
-  $.get("http://socket.jyroneparker.com/command/gps", function(data, status){
+  $.get("http://socket.jyroneparker.com/command/gps"+$('#get-gps').data('id'), function(data, status){
 
     });
 
 });
 
 $('#stop-audio').click(function(){
-  $.get("http://socket.jyroneparker.com/command/audio-stop", function(data, status){
+  $.get("http://socket.jyroneparker.com/command/audio-stop"+$('#stop-audio').data('id'), function(data, status){
 
     });
 
 });
 $('#vibrate').click(function(){
-  $.get("http://socket.jyroneparker.com/command/vibrate", function(data, status){
+  $.get("http://socket.jyroneparker.com/command/vibrate"+$('#vibrate').data('id'), function(data, status){
 
     });
 

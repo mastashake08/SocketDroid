@@ -14,8 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/command/{command}', function($command){
-  event(new \App\Events\SendCommand($command));
+Route::get('/command/{command}/{id}', function($command,$id){
+  event(new \App\Events\SendCommand($command,$id));
 });
 Route::get('/response',function(){
   event(new \App\Events\SendResponse());
@@ -28,3 +28,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::post('/post-gps','GpsController@postGps');
 Route::resource('gps','GpsController');
+Route::resource('device','DeviceController');
