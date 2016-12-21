@@ -56,7 +56,8 @@
                 <div class="panel-body">
                     <form method="post" action="/device">
                       {{ csrf_field() }}
-                      <input type="tel" name="phone" placeholder="Phone Number">
+                      <input type="tel" class="form-control" name="phone" placeholder="Phone Number">
+                      <button type="submit" class="btn btn-default">Add Device</button>
                     </form>
                 </div>
             </div>
