@@ -79,6 +79,7 @@ function initMap(lat,long) {
           });
       }
       var grammar = 'start audio | stop audio | get location'
+      var counter = 0;
       var recognition = new webkitSpeechRecognition();
       var speechRecognitionList = new webkitSpeechGrammarList();
       speechRecognitionList.addFromString(grammar, 1);
@@ -89,8 +90,9 @@ function initMap(lat,long) {
       recognition.maxAlternatives = 1;
       recognition.continuous = true;
       recognition.onresult = function(event) {
-  var command = event.results[0][0].transcript;
-  console.log(event.results);
+  var command = event.results[counter][0].transcript;
+  console.log(command);
+  counter++;
   switch(command){
     case 'start audio':
     $.get("http://socket.jyroneparker.com/command/audio-start", function(data, status){
