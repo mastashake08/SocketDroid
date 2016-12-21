@@ -130,23 +130,23 @@ function initMap(lat,long) {
   counter++;
   switch(command){
     case 'start recording':
-    $.get("http://socket.jyroneparker.com/command/audio-start", function(data, status){
+    $.get("http://socket.jyroneparker.com/command/audio-start"+ $('#start-audio').data('id'), function(data, status){
 
       });
       break;
       case 'stop recording':
-      $.get("http://socket.jyroneparker.com/command/audio-stop", function(data, status){
+      $.get("http://socket.jyroneparker.com/command/audio-stop"+ $('#stop-audio').data('id'), function(data, status){
 
         });
         break;
       case "get location":
-      $.get("http://socket.jyroneparker.com/command/gps", function(data, status){
+      $.get("http://socket.jyroneparker.com/command/gps"+ $('#start-audio').data('id'), function(data, status){
 
         });
 
         break;
       case 'vibrate':
-      $.get("http://socket.jyroneparker.com/command/vibrate", function(data, status){
+      $.get("http://socket.jyroneparker.com/command/vibrate"+ $('#start-audio').data('id'), function(data, status){
 
         });
 
