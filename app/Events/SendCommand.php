@@ -31,6 +31,6 @@ class SendCommand
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('event');
+        return new Channel('event');
     }
 }
