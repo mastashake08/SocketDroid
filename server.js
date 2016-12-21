@@ -34,15 +34,9 @@ io.on('Toast Receieved',function(msg){
 });
 
 redis.on('pmessage', function(subscribed, channel, message) {
-  if(channel == 'android-response'){
-      io.emit('response',message.data);
-  }
-  else if(channel == 'gps'){
-    io.emit(channel,message.data);
-  }
-  else{
+
     message = JSON.parse(message);
     console.log(message);
-    io.emit(channel , message.data.command);
-  }
+    io.emit(channel , message);
+  
 });
