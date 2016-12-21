@@ -26,6 +26,9 @@ io.on('connection', function(socket) {
       console.log(msg);
       io.emit('admin',msg);
     });
+    socket.on('test',function(msg){
+      console.log(msg);
+    });
   });
 });
 
