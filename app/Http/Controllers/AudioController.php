@@ -14,7 +14,7 @@ class AudioController extends Controller
     }
 
     public function download($filename){
-      $url = Storage::url('file1.jpg');
+      $url = Storage::url("audio/{$filename}");
       return response()->file($url);
     }
 }
