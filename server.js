@@ -35,6 +35,7 @@ io.on('Toast Receieved',function(msg){
 
 redis.on('pmessage', function(subscribed, channel, message) {
   if(channel == 'android-response'){
+    console.log("Message Receieved");
     io.emit('response',"Message Receieved");
   }
     message = JSON.parse(message);
