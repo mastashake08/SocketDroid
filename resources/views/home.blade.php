@@ -78,7 +78,7 @@ function initMap(lat,long) {
             map.panTo(center);
           });
       }
-      var grammar = 'start audio | stop audio | get location'
+      var grammar = 'start recording|stop recording|get location'
       var counter = 0;
       var recognition = new webkitSpeechRecognition();
       var speechRecognitionList = new webkitSpeechGrammarList();
