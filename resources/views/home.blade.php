@@ -20,8 +20,8 @@
                 <div class="panel-body">
                     <button class="btn btn-sm btn-default" id="start-audio" ><i class="fa fa-microphone" aria-hidden="true"></i></button>
                     <button class="btn btn-sm btn-default" id="stop-audio"><i class="fa fa-microphone-slash" aria-hidden="true"></i></button>
-                    <button class="btn btn-sm btn-default" id="get-gps"><i class="fa  fa-map-marker" aria-hidden="true"></i></button>
-                    <button class="btn btn-sm btn-default" id="vibrate"><i class="fa  fa-mobile" aria-hidden="true"></i></button>
+                    <button class="btn btn-sm btn-default" id="get-gps"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
+                    <button class="btn btn-sm btn-default" id="vibrate"><i class="fa fa-mobile" aria-hidden="true"></i></button>
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@ $('#stop-audio').click(function(){
 
 });
 $('#vibrate').click(function(){
-  $.get("http://socket.jyroneparker.com/command/audio-stop", function(data, status){
+  $.get("http://socket.jyroneparker.com/command/vibrate", function(data, status){
 
     });
 
