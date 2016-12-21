@@ -12,5 +12,6 @@ class DeviceController extends Controller
         'user_id' => $request->user()->id,
         'phone' => $request->phone
       ]);
+      return back();
     }
 }
