@@ -9,6 +9,7 @@ class GpsController extends Controller
     //
     public function postGps(Request $request){
       $gps = Gps::Create($request->all());
+      
       event(new \App\Events\GpsCreated($gps));
       return $gps;
     }

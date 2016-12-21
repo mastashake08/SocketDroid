@@ -21,6 +21,7 @@ class GpsCreated implements ShouldBroadcast
     public function __construct(\App\Gps $gps)
     {
         //
+        \Log::info("Event Fired");
         $this->gps = $gps;
     }
 
