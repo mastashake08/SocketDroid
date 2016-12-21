@@ -65,7 +65,7 @@ function initMap(lat,long) {
       var socket = io.connect('http://socket.jyroneparker.com:6001');
         socket.on('gps', function (data) {
           console.log(data);
-          marker.setPosition({lat:data.lat,long:data.long)
+          marker.setPosition({lat:data.lat,long:data.long});
         });
 </script>
 <script async defer
