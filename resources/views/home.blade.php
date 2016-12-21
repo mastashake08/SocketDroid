@@ -25,10 +25,10 @@
       <tr>
         <td>{{$device->phone}}</td>
         <td>
-        <button data-id="{{$device->id}}" class="btn btn-sm btn-default" id="start-audio" ><i class="fa fa-microphone" aria-hidden="true"></i></button>
-        <button data-id="{{$device->id}}" class="btn btn-sm btn-default" id="stop-audio"><i class="fa fa-microphone-slash" aria-hidden="true"></i></button>
-        <button data-id="{{$device->id}}" class="btn btn-sm btn-default" id="get-gps"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
-        <button data-id="{{$device->id}}" class="btn btn-sm btn-default" id="vibrate"><i class="fa fa-mobile" aria-hidden="true"></i></button>
+        <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-start-audio" id="start-audio" ><i class="fa fa-microphone" aria-hidden="true"></i></button>
+        <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-stop-audio" id="stop-audio"><i class="fa fa-microphone-slash" aria-hidden="true"></i></button>
+        <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-get-gps" id="get-gps"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
+        <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-vibrate" id="vibrate"><i class="fa fa-mobile" aria-hidden="true"></i></button>
       </td>
   </tr>
       @endforeach
@@ -68,32 +68,43 @@
 </div>
 
 <script>
+var startAudio = document.getElementsByClassName("action-start-audio");
+var stopAudio = document.getElementsByClassName("action-stop-audio");
+var getGps = document.getElementsByClassName("action-get-gps");
+var vibrate = document.getElementsByClassName("action-vibrate");
 
-$('#start-audio').click(function(){
-  $.get("http://socket.jyroneparker.com/command/audio-start/" + $('#start-audio').data('id'), function(data, status){
 
-    });
 
-});
-$('#get-gps').click(function(){
-  $.get("http://socket.jyroneparker.com/command/gps/"+$('#get-gps').data('id'), function(data, status){
 
-    });
+for (var i = 0; i < startAudio.length; i++) {
+    startAudio[i].addEventListener('click', function(){
+      $.get("http://socket.jyroneparker.com/command/audio-start/" + startAudio[i].dataset.id, function(data, status){
 
-});
-
-$('#stop-audio').click(function(){
-  $.get("http://socket.jyroneparker.com/command/audio-stop/"+$('#stop-audio').data('id'), function(data, status){
-
-    });
+        }, false);
 
 });
-$('#vibrate').click(function(){
-  $.get("http://socket.jyroneparker.com/command/vibrate/"+$('#vibrate').data('id'), function(data, status){
+}
+for (var i = 0; i < stopAudio.length; i++) {
+    stopAudio[i].addEventListener('click', function(){
+      $.get("http://socket.jyroneparker.com/command/audio-stop/" + stopAudio[i].dataset.id, function(data, status){
 
-    });
-
+        }, false);
 });
+}
+for (var i = 0; i < getGps.length; i++) {
+    getGps[i].addEventListener('click', function(){
+      $.get("http://socket.jyroneparker.com/command/gps/" + getGps[i].dataset.id, function(data, status){
+
+      }, false);
+});
+}
+for (var i = 0; i < vibrate.length; i++) {
+    getGps[i].addEventListener('click', function(){
+      $.get("http://socket.jyroneparker.com/command/vibrate/" + vibrate[i].dataset.id, function(data, status){
+
+      }, false);
+});
+}
 function initMap(lat,long) {
         var uluru = {lat: -25.363, lng: 131.044};
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -146,7 +157,7 @@ function initMap(lat,long) {
 
         break;
       case 'vibrate':
-      $.get("http://socket.jyroneparker.com/command/vibrate"+ $('#start-audio').data('id'), function(data, status){
+      $.get("http://socket.jyroneparker.com/command/vibrate"+ $('#start-audio').data('id') , function(data, status){
 
         });
 
