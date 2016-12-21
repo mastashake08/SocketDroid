@@ -18,7 +18,7 @@ class AudioController extends Controller
     }
 
     public function download($filename){
-      $url = storage_path('app/audio/'.$filename);
+      $url = storage_path('public/app/audio/'.$filename);
 
       return response()->file($url);
     }
