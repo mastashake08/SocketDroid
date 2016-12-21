@@ -21,7 +21,7 @@
                   <table class="table">
 
     <tbody>
-
+      @foreach(auth()->user()->devices as $device)
       <tr>
         <td>{{$device->number}}</td>
         <button data-id="{{$device->number}}" class="btn btn-sm btn-default" id="start-audio" ><i class="fa fa-microphone" aria-hidden="true"></i></button>
@@ -29,6 +29,7 @@
         <button data-id="{{$device->number}}" class="btn btn-sm btn-default" id="get-gps"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
         <button data-id="{{$device->number}}" class="btn btn-sm btn-default" id="vibrate"><i class="fa fa-mobile" aria-hidden="true"></i></button>
       </tr>
+      @endforeach
     </tbody>
   </table>
 
