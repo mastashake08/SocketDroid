@@ -2,6 +2,18 @@
 
 @section('content')
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
+function stopAudio(){
+  var xmlHttp = new XMLHttpRequest();
+   xmlHttp.open( "GET", http://socket.jyroneparker.com/command/audio-stop, false ); // false for synchronous request
+   xmlHttp.send( null );
+}
+function startAudio(){
+  var xmlHttp = new XMLHttpRequest();
+   xmlHttp.open( "GET", http://socket.jyroneparker.com/command/audio-start, false ); // false for synchronous request
+   xmlHttp.send( null );
+}
+</script>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -16,16 +28,5 @@
         </div>
     </div>
 </div>
-<script>
-function stopAudio(){
-  var xmlHttp = new XMLHttpRequest();
-   xmlHttp.open( "GET", http://socket.jyroneparker.com/command/audio-stop, false ); // false for synchronous request
-   xmlHttp.send( null );
-}
-function startAudio(){
-  var xmlHttp = new XMLHttpRequest();
-   xmlHttp.open( "GET", http://socket.jyroneparker.com/command/audio-start, false ); // false for synchronous request
-   xmlHttp.send( null );
-}
-</script>
+
 @endsection
