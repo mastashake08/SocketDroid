@@ -78,7 +78,7 @@ function initMap(lat,long) {
             map.panTo(center);
           });
       }
-      var grammar = 'start audio | end audio | get gps'
+      var grammar = 'start audio | stop audio | get location'
       var recognition = new webkitSpeechRecognition();
       var speechRecognitionList = new webkitSpeechGrammarList();
       speechRecognitionList.addFromString(grammar, 1);
@@ -102,7 +102,7 @@ function initMap(lat,long) {
 
         });
         break;
-      case "get gps":
+      case "get location":
       $.get("http://socket.jyroneparker.com/command/gps", function(data, status){
 
         });
