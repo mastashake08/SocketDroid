@@ -78,7 +78,7 @@ var vibrate = document.getElementsByClassName("action-vibrate");
 
 for (var i = 0; i < startAudio.length; i++) {
     startAudio[i].addEventListener('click', function(){
-      $.get("http://socket.jyroneparker.com/command/audio-start/" + startAudio[i].dataset.id, function(data, status){
+      $.get("http://socket.jyroneparker.com/command/audio-start/" + $(this).data('id'), function(data, status){
 
         }, false);
 
@@ -86,14 +86,14 @@ for (var i = 0; i < startAudio.length; i++) {
 }
 for (var i = 0; i < stopAudio.length; i++) {
     stopAudio[i].addEventListener('click', function(){
-      $.get("http://socket.jyroneparker.com/command/audio-stop/" + stopAudio[i].dataset.id, function(data, status){
+      $.get("http://socket.jyroneparker.com/command/audio-stop/" + $(this).data('id'), function(data, status){
 
         }, false);
 });
 }
 for (var i = 0; i < getGps.length; i++) {
     getGps[i].addEventListener('click', function(){
-      $.get("http://socket.jyroneparker.com/command/gps/" + getGps[i].dataset.id, function(data, status){
+      $.get("http://socket.jyroneparker.com/command/gps/" + $(this).data('id'), function(data, status){
 
       }, false);
 });
