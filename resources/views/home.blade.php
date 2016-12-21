@@ -90,8 +90,8 @@ function initMap(lat,long) {
       recognition.maxAlternatives = 1;
       recognition.continuous = true;
       recognition.onresult = function(event) {
-  var command = event.results[counter][0].transcript;
-  console.log(event.results[counter][0]);
+  var command = trim(event.results[counter][0].transcript);
+  console.log(comman);
   counter++;
   switch(command){
     case 'start audio':
