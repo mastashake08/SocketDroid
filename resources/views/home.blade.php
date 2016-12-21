@@ -91,6 +91,7 @@ function initMap(lat,long) {
   var command = event.results[0][0].transcript;
   console.log(command);
 }
+recognition.start();
 </script>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCDNt1biVyfA8h-eCZyZ69CKS6NNBCeEQ&callback=initMap">
