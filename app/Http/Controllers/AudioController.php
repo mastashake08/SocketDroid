@@ -12,7 +12,7 @@ class AudioController extends Controller
       $fn = str_random(25);
       $path = $request->audio->storeAs('audio', "{$fn}.3gp");
       $user = \App\User::all();
-      $user->each(function($item, $key){
+      $user->each(function($item, $key) use($fn){
         $item->notify(new \App\Notifications\FileUploaded($fn));
       });
     }
