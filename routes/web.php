@@ -29,3 +29,4 @@ Route::get('/home', 'HomeController@index');
 Route::post('/post-gps','GpsController@postGps');
 Route::resource('gps','GpsController');
 Route::resource('device','DeviceController');
+Route::post('/post-battery', 'BatteryController@getBattery');

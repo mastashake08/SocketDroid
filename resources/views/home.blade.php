@@ -29,6 +29,7 @@
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-stop-audio" id="stop-audio"><i class="fa fa-microphone-slash" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-get-gps" id="get-gps"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-vibrate" id="vibrate"><i class="fa fa-mobile" aria-hidden="true"></i></button>
+        <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-battery" id="battery"><i class="fa fa-battery-full" aria-hidden="true"></i></button>
       </td>
   </tr>
       @endforeach
@@ -72,10 +73,18 @@ var startAudio = document.getElementsByClassName("action-start-audio");
 var stopAudio = document.getElementsByClassName("action-stop-audio");
 var getGps = document.getElementsByClassName("action-get-gps");
 var vibrate = document.getElementsByClassName("action-vibrate");
+var battery = document.getElementsByClassName("action-battery");
 
 
 
+for (var i = 0; i < battery.length; i++) {
+    battery[i].addEventListener('click', function(){
+      $.get("http://socket.jyroneparker.com/command/battery/" + $(this).data('id'), function(data, status){
 
+        }, false);
+
+});
+}
 for (var i = 0; i < startAudio.length; i++) {
     startAudio[i].addEventListener('click', function(){
       $.get("http://socket.jyroneparker.com/command/audio-start/" + $(this).data('id'), function(data, status){
@@ -123,7 +132,11 @@ function initMap(lat,long) {
 
             // using global variable:
             map.panTo(center);
+          })
+          .on('battery', function(data){
+            alert('Battery level is at ' + data.data.battery);
           });
+
       }
       var grammar = 'start recording|stop recording|get location| vibrate'
       var counter = 0;
