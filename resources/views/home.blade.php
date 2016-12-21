@@ -38,11 +38,7 @@
 </div>
 
 <script>
-var socket = io.connect('http://socket.jyroneparker.com:6001');
-  socket.on('gps', function (data) {
-    console.log(data);
-  
-  });
+
 $('#start-audio').click(function(){
   $.get("http://socket.jyroneparker.com/command/audio-start", function(data, status){
         alert("Data: " + data + "\nStatus: " + status);
@@ -66,6 +62,11 @@ function initMap(lat,long) {
           map: map
         });
       }
+      var socket = io.connect('http://socket.jyroneparker.com:6001');
+        socket.on('gps', function (data) {
+          console.log(data);
+          marker.setPosition({lat:data.lat,long:data.long)
+        });
 </script>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCDNt1biVyfA8h-eCZyZ69CKS6NNBCeEQ&callback=initMap">
