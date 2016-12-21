@@ -101,7 +101,7 @@ for (var i = 0; i < getGps.length; i++) {
 for (var i = 0; i < vibrate.length; i++) {
   console.log(vibrate[i]);
     vibrate[i].addEventListener('click', function(){
-      $.get("http://socket.jyroneparker.com/command/vibrate/" + vibrate[i].dataset.id, function(data, status){
+      $.get("http://socket.jyroneparker.com/command/vibrate/" + $(this).data('id'), function(data, status){
 
       }, false);
 });
