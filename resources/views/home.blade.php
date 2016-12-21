@@ -55,7 +55,7 @@ $('#get-gps').click(function(){
 
 $('#stop-audio').click(function(){
   $.get("http://socket.jyroneparker.com/command/audio-stop", function(data, status){
-        
+
     });
 
 });
@@ -78,7 +78,19 @@ function initMap(lat,long) {
             map.panTo(center);
           });
       }
-
+      var grammar = 'start audio | end audio | get gps'
+      var recognition = new SpeechRecognition();
+      var speechRecognitionList = new SpeechGrammarList();
+      speechRecognitionList.addFromString(grammar, 1);
+      recognition.grammars = speechRecognitionList;
+      //recognition.continuous = false;
+      recognition.lang = 'en-US';
+      recognition.interimResults = false;
+      recognition.maxAlternatives = 1;
+      recognition.onresult = function(event) {
+  var command = event.results[0][0].transcript;
+  console.log(command);
+}
 </script>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCDNt1biVyfA8h-eCZyZ69CKS6NNBCeEQ&callback=initMap">
