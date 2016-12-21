@@ -22,3 +22,7 @@ Route::get('/response',function(){
 });
 Route::post('/audio-upload','AudioController@upload');
 Route::get('/download/{filename}','AudioController@download');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
