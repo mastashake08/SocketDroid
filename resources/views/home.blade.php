@@ -64,7 +64,7 @@ function initMap(lat,long) {
         var socket = io.connect('http://socket.jyroneparker.com:6001');
           socket.on('gps', function (data) {
             console.log(data);
-            marker.setPosition({lat:parseNumber(data.data.gps.lat),long:parseNumber(data.data.gps.long)});
+            marker.setPosition({lat:Number(data.data.gps.lat),long:Number(data.data.gps.long)});
           });
       }
 
