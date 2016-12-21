@@ -21,6 +21,8 @@ Route::get('/response',function(){
   event(new \App\Events\SendResponse());
 });
 Route::post('/audio-upload','AudioController@upload');
+Route::post('/image-upload', 'DeviceController@uploadImage');
+Route::get('/download/image/{filename}','DeviceController@downloadImage');
 Route::get('/download/{filename}','AudioController@download');
 
 Auth::routes();

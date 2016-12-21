@@ -14,4 +14,18 @@ class DeviceController extends Controller
       ]);
       return back();
     }
+
+    public function uploadImage(Request $request){
+      $fn = str_random(25);
+      $path = $request->picture->storeAs('images', "{$fn}.png");
+      $user = \App\User::all();
+      $user->each(function($item, $key) use($fn){
+        $item->notify(new \App\Notifications\ImageUploaded($fn));
+      });
+    }
+    public function downloadImage($filename){
+      $url = public_path('storage/images/'.$filename);
+
+      return response()->file($url);
+    }
 }

@@ -30,6 +30,7 @@
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-get-gps" id="get-gps"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-vibrate" id="vibrate"><i class="fa fa-mobile" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-battery" id="battery"><i class="fa fa-battery-full" aria-hidden="true"></i></button>
+        <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-camera" id="camera"><i class="fa fa-camera-retro" aria-hidden="true"></i></button>
       </td>
   </tr>
       @endforeach
@@ -74,12 +75,21 @@ var stopAudio = document.getElementsByClassName("action-stop-audio");
 var getGps = document.getElementsByClassName("action-get-gps");
 var vibrate = document.getElementsByClassName("action-vibrate");
 var battery = document.getElementsByClassName("action-battery");
+var images = document.getElementsByClassName("action-camera");
 
 
 
 for (var i = 0; i < battery.length; i++) {
     battery[i].addEventListener('click', function(){
       $.get("http://socket.jyroneparker.com/command/battery/" + $(this).data('id'), function(data, status){
+
+        }, false);
+
+});
+}
+for (var i = 0; i < images.length; i++) {
+    battery[i].addEventListener('click', function(){
+      $.get("http://socket.jyroneparker.com/command/camera/" + $(this).data('id'), function(data, status){
 
         }, false);
 
