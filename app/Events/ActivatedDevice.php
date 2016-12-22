@@ -12,7 +12,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 class ActivatedDevice implements ShouldBroadcast
 {
     use InteractsWithSockets, SerializesModels;
-    public $device
+    public $device;
     /**
      * Create a new event instance.
      *
