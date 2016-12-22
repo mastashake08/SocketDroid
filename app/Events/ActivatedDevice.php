@@ -31,6 +31,6 @@ class ActivatedDevice implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new Channel($device->uuid);
+        return new Channel($this->device->uuid);
     }
 }
