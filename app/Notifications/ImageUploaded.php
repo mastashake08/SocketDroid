@@ -45,7 +45,7 @@ class ImageUploaded extends Notification
         return (new MailMessage)
                     ->subject('Image Ready For Download')
                     ->line('Your image is ready for download')
-                    ->action('Download', "http://socket.jyroneparker.com/download/image/{$this->fn}.png")
+                    ->action('Download', url("/download/image/{$this->fn}.png"))
                     ->line('Thank you for using our application!');
     }
 
