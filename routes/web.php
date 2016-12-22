@@ -32,6 +32,6 @@ Route::post('/post-gps','GpsController@postGps');
 Route::resource('gps','GpsController');
 Route::resource('device','DeviceController');
 Route::post('/post-battery', 'BatteryController@getBattery');
-Route::get('/about',function(){
+Route::get('/how-it-works',function(){
   return view('about');
 });
