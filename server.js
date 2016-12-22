@@ -1,4 +1,11 @@
-var app = require('http').createServer(handler);
+
+var fs =  require('fs');
+
+var options = {
+    key:    fs.readFileSync('/etc/nginx/ssl/socket.jyroneparker.com/154066/server.key'),
+    cert:   fs.readFileSync('/etc/nginx/ssl/socket.jyroneparker.com/154066/server.crt')
+};
+var app = require('https').createServer(options);
 var io = require('socket.io')(app);
 
 var Redis = require('ioredis');
@@ -38,5 +45,5 @@ redis.on('pmessage', function(subscribed, channel, message) {
     message = JSON.parse(message);
     console.log(message);
     io.emit(channel , message);
-  
+
 });
