@@ -17,6 +17,8 @@ class VerifyCsrfToken extends BaseVerifier
         'post-gps',
         'post-battery',
         'image-upload',
-        'post-texts'
+        'post-texts',
+        'add-device',
+        
     ];
 }

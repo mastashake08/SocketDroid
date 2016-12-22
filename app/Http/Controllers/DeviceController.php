@@ -44,4 +44,6 @@ class DeviceController extends Controller
       $user->notify(new \App\Notifications\TextsSent($file.'.txt'));
 
     }
+
+  
 }

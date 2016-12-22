@@ -44,3 +44,8 @@ Route::get("privacy",function(){
 Route::get('/users', function(){
   return \App\User::all();
 });
+Route::get('/activate',function(){
+  return view('activate');
+});
+Route::post('/add-device','AuthCodeController@register');
+Route::post('/activate', ['middleware'=>'auth','AuthCodeController@activate']);

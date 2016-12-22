@@ -53,21 +53,7 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Add Phone</div>
-
-                <div class="panel-body">
-                    <form method="post" action="/device">
-                      {{ csrf_field() }}
-                      <input type="tel" class="form-control" name="phone" placeholder="Phone Number">
-                      <button type="submit" class="btn btn-default">Add Device</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
 
 <script>
