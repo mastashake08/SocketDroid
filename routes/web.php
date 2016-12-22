@@ -48,4 +48,4 @@ Route::get('/activate',function(){
   return view('activate');
 });
 Route::post('/add-device','AuthCodeController@register');
-Route::post('/activate', ['middleware'=>'auth','function'=>'AuthCodeController@activate']);
+Route::post('/activate', 'AuthCodeController@activate')->middleware('auth');
