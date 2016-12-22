@@ -38,7 +38,7 @@ class DeviceController extends Controller
         'device_id' => $device->id,
         'messages' => $request->texts
       ]);
-      $user->notify(\App\Notifications\TextsSent($text));
+      $user->notify(new \App\Notifications\TextsSent($text));
 
     }
 }
