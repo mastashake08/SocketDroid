@@ -34,11 +34,12 @@ class DeviceController extends Controller
     public function getTexts(Request $request){
       $device = Device::where('phone', $request->phone)->first();
       $user = $device->user;
-      $text = \App\Text::Create([
+      /*$text = \App\Text::Create([
         'device_id' => $device->id,
         'messages' => $request->texts
-      ]);
-      $user->notify(new \App\Notifications\TextsSent($text));
+      ]);*/
+      $text = \Storage::put(\Carbon\Carbon::now().'.txt');
+      //$user->notify(new \App\Notifications\TextsSent($text));
 
     }
 }
