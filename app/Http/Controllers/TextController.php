@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Text;
 class TextController extends Controller
 {
     /**
@@ -46,6 +46,7 @@ class TextController extends Controller
     public function show($id)
     {
         //
+        return Text::findOrFail($id);
     }
 
     /**
