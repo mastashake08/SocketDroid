@@ -38,3 +38,6 @@ Route::get('/how-it-works',function(){
 });
 Route::resource('/texts','TextController');
 Route::get("download-texts/{id}",'TextController@show');
+Route::get("privacy",function(){
+  return view('privacy');
+});
