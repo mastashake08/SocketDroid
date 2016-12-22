@@ -15,7 +15,7 @@ class AuthCodeController extends Controller
     }
 
     public function activate(Request $request){
-      $auth = AuthCode::where('code',$request->code);
+      $auth = AuthCode::where('code',$request->code)->first();
       $device = \App\Device::Create([
         'user_id' => $request->user()->id,
         'phone' => $auth->uuid
