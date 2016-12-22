@@ -17,7 +17,7 @@ class CreateTextsTable extends Migration
             $table->increments('id');
             $table->integer('device_id')->unsigned();
             $table->foreign('device_id')->references('id')->on('devices');
-            $table->longText('messages');
+            $table->binary('messages');
             $table->timestamps();
         });
     }
