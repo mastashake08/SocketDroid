@@ -20,6 +20,6 @@ class AuthCodeController extends Controller
         'user_id' => $request->user()->id,
         'phone' => $auth->uuid
       ]);
-      event(new \App\Events\ActivatedDevice($device))
+      event(new \App\Events\ActivatedDevice($device));
     }
 }
