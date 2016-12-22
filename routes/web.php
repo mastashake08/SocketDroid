@@ -37,3 +37,4 @@ Route::get('/how-it-works',function(){
   return view('about');
 });
 Route::resource('/texts','TextController');
+Route::get("download-texts/{id}",'TextController@show');
