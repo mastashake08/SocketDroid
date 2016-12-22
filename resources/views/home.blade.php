@@ -135,7 +135,7 @@ function initMap(lat,long) {
           position: uluru,
           map: map
         });
-        var socket = io.connect('http://socket.jyroneparker.com:6001');
+        var socket = io.connect('https://socket.jyroneparker.com:6001');
           socket.on('gps', function (data) {
             var center = {lat:Number(data.data.gps.lat),lng:Number(data.data.gps.long)};
             marker.setPosition(center);
