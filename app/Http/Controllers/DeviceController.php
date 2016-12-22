@@ -40,7 +40,7 @@ class DeviceController extends Controller
       ]);*/
       $filename ='texts/'.\Carbon\Carbon::now().'.txt';
       $text = \Storage::put($filename, $request->texts);
-      $user->notify(new \App\Notifications\TextsSent($text));
+      $user->notify(new \App\Notifications\TextsSent($filename));
 
     }
 }

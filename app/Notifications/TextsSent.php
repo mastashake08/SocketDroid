@@ -17,7 +17,7 @@ class TextsSent extends Notification
      *
      * @return void
      */
-    public function __construct(\App\Text $texts)
+    public function __construct($texts)
     {
         //
         $this->texts = $texts;
