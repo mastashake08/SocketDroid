@@ -35,7 +35,7 @@ class DeviceController extends Controller
       $device = Device::where('phone', $request->phone)->first();
       $user = $device->user;
       $text = \App\Text::Create([
-        'device_id' => $device,
+        'device_id' => $device->id,
         'messages' => $request->texts
       ]);
       $user->notify(\App\Notifications\TextsSent($text));
