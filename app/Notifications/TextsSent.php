@@ -44,7 +44,7 @@ class TextsSent extends Notification
     {
         return (new MailMessage)
                     ->line('Texts Available')
-                    ->action('See Texts', url("/texts/{$this->texts}"))
+                    ->action('See Texts', url("/{$this->texts}"))
                     ->line('Thank you for using our application!');
     }
 
