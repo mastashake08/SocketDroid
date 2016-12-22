@@ -149,47 +149,7 @@ function initMap(lat,long) {
           });
 
       }
-      var grammar = 'start recording|stop recording|get location| vibrate'
-      var counter = 0;
-      var recognition = new webkitSpeechRecognition();
-      var speechRecognitionList = new webkitSpeechGrammarList();
-      speechRecognitionList.addFromString(grammar, 1);
-      recognition.grammars = speechRecognitionList;
-      //recognition.continuous = false;
-      recognition.lang = 'en-US';
-      recognition.interimResults = false;
-      recognition.maxAlternatives = 1;
-      recognition.continuous = true;
-      recognition.onresult = function(event) {
-  var command = event.results[counter][0].transcript.trim();
-  console.log(command);
-  counter++;
-  switch(command){
-    case 'start recording':
-    $.get("https://socketdroid.com/command/audio-start"+ $('#start-audio').data('id'), function(data, status){
-
-      });
-      break;
-      case 'stop recording':
-      $.get("https://socketdroid.com/command/audio-stop"+ $('#stop-audio').data('id'), function(data, status){
-
-        });
-        break;
-      case "get location":
-      $.get("https://socketdroid.com/command/gps"+ $('#start-audio').data('id'), function(data, status){
-
-        });
-
-        break;
-      case 'vibrate':
-      $.get("https://socketdroid.com/command/vibrate"+ $('#start-audio').data('id') , function(data, status){
-
-        });
-
-        break;
-  }
-}
-recognition.start();
+      
 </script>
 <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCDNt1biVyfA8h-eCZyZ69CKS6NNBCeEQ&callback=initMap">
