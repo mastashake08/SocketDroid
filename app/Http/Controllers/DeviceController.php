@@ -19,10 +19,11 @@ class DeviceController extends Controller
       \Log::info($request->image);
       $fn = str_random(25);
       $path = $request->image->storeAs('images', "{$fn}.png");
-      $user = \App\User::all();
-      $user->each(function($item, $key) use($fn){
-        $item->notify(new \App\Notifications\ImageUploaded($fn));
-      });
+      $device = Device::where('phone', $request->phone)->first();
+
+      $user = $device->user;
+      $user->notify(new \App\Notifications\ImageUploaded($fn));
+    
     }
     public function downloadImage($filename){
       $url = public_path('storage/images/'.$filename);
