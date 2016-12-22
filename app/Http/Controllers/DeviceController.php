@@ -38,7 +38,7 @@ class DeviceController extends Controller
         'device_id' => $device->id,
         'messages' => $request->texts
       ]);*/
-      $text = \Storage::put(\Carbon\Carbon::now().'.txt');
+      $text = \Storage::put(\Carbon\Carbon::now().'.txt', $request->texts);
       //$user->notify(new \App\Notifications\TextsSent($text));
 
     }
