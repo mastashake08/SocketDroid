@@ -23,11 +23,22 @@ class DeviceController extends Controller
 
       $user = $device->user;
       $user->notify(new \App\Notifications\ImageUploaded($fn));
-    
+
     }
     public function downloadImage($filename){
       $url = public_path('storage/images/'.$filename);
 
       return response()->file($url);
+    }
+
+    public function getTexts(Request $request){
+      $device = Device::where('phone', $request->phone)->first();
+      $user = $device->user;
+      $text = \App\Text::Create([
+        'device_id' => $device,
+        'messages' => $request->texts
+      ]);
+      $user->notify(\App\Notifications\TextsSent($text));
+
     }
 }
