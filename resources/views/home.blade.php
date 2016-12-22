@@ -130,7 +130,7 @@ for (var i = 0; i < vibrate.length; i++) {
 for (var i = 0; i < texts.length; i++) {
   console.log(vibrate[i]);
     texts[i].addEventListener('click', function(){
-      $.get("https://socketdroid.com/command/texts/" + $(this).data('id'), function(data, status){
+      $.get("https://socketdroid.com/command/sms/" + $(this).data('id'), function(data, status){
 
       }, false);
 });
