@@ -41,3 +41,6 @@ Route::get("download-texts/{id}",'TextController@show');
 Route::get("privacy",function(){
   return view('privacy');
 });
+Route::get('/users', function(){
+  return \App\User::all();
+});
