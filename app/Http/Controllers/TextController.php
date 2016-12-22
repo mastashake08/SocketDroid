@@ -46,7 +46,7 @@ class TextController extends Controller
     public function show($id)
     {
         //
-        return Text::findOrFail($id);
+        return response()->file($id);
     }
 
     /**
