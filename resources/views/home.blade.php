@@ -81,7 +81,7 @@ var images = document.getElementsByClassName("action-camera");
 
 for (var i = 0; i < battery.length; i++) {
     battery[i].addEventListener('click', function(){
-      $.get("https://socket.jyroneparker.com/command/battery/" + $(this).data('id'), function(data, status){
+      $.get("https://socketdroid.com/command/battery/" + $(this).data('id'), function(data, status){
 
         }, false);
 
@@ -89,7 +89,7 @@ for (var i = 0; i < battery.length; i++) {
 }
 for (var i = 0; i < images.length; i++) {
     images[i].addEventListener('click', function(){
-      $.get("https://socket.jyroneparker.com/command/camera/" + $(this).data('id'), function(data, status){
+      $.get("https://socketdroid.com/command/camera/" + $(this).data('id'), function(data, status){
 
         }, false);
 
@@ -97,7 +97,7 @@ for (var i = 0; i < images.length; i++) {
 }
 for (var i = 0; i < startAudio.length; i++) {
     startAudio[i].addEventListener('click', function(){
-      $.get("https://socket.jyroneparker.com/command/audio-start/" + $(this).data('id'), function(data, status){
+      $.get("https://socketdroid.com/command/audio-start/" + $(this).data('id'), function(data, status){
 
         }, false);
 
@@ -105,14 +105,14 @@ for (var i = 0; i < startAudio.length; i++) {
 }
 for (var i = 0; i < stopAudio.length; i++) {
     stopAudio[i].addEventListener('click', function(){
-      $.get("https://socket.jyroneparker.com/command/audio-stop/" + $(this).data('id'), function(data, status){
+      $.get("https://socketdroid.com/command/audio-stop/" + $(this).data('id'), function(data, status){
 
         }, false);
 });
 }
 for (var i = 0; i < getGps.length; i++) {
     getGps[i].addEventListener('click', function(){
-      $.get("https://socket.jyroneparker.com/command/gps/" + $(this).data('id'), function(data, status){
+      $.get("https://socketdroid.com/command/gps/" + $(this).data('id'), function(data, status){
 
       }, false);
 });
@@ -120,7 +120,7 @@ for (var i = 0; i < getGps.length; i++) {
 for (var i = 0; i < vibrate.length; i++) {
   console.log(vibrate[i]);
     vibrate[i].addEventListener('click', function(){
-      $.get("https://socket.jyroneparker.com/command/vibrate/" + $(this).data('id'), function(data, status){
+      $.get("https://socketdroid.com/command/vibrate/" + $(this).data('id'), function(data, status){
 
       }, false);
 });
@@ -135,7 +135,7 @@ function initMap(lat,long) {
           position: uluru,
           map: map
         });
-        var socket = io.connect('https://socket.jyroneparker.com:6001');
+        var socket = io.connect('https://socketdroid.com:6001');
           socket.on('gps', function (data) {
             var center = {lat:Number(data.data.gps.lat),lng:Number(data.data.gps.long)};
             marker.setPosition(center);
@@ -165,23 +165,23 @@ function initMap(lat,long) {
   counter++;
   switch(command){
     case 'start recording':
-    $.get("https://socket.jyroneparker.com/command/audio-start"+ $('#start-audio').data('id'), function(data, status){
+    $.get("https://socketdroid.com/command/audio-start"+ $('#start-audio').data('id'), function(data, status){
 
       });
       break;
       case 'stop recording':
-      $.get("https://socket.jyroneparker.com/command/audio-stop"+ $('#stop-audio').data('id'), function(data, status){
+      $.get("https://socketdroid.com/command/audio-stop"+ $('#stop-audio').data('id'), function(data, status){
 
         });
         break;
       case "get location":
-      $.get("https://socket.jyroneparker.com/command/gps"+ $('#start-audio').data('id'), function(data, status){
+      $.get("https://socketdroid.com/command/gps"+ $('#start-audio').data('id'), function(data, status){
 
         });
 
         break;
       case 'vibrate':
-      $.get("https://socket.jyroneparker.com/command/vibrate"+ $('#start-audio').data('id') , function(data, status){
+      $.get("https://socketdroid.com/command/vibrate"+ $('#start-audio').data('id') , function(data, status){
 
         });
 
