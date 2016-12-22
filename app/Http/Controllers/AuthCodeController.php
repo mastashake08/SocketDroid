@@ -21,5 +21,6 @@ class AuthCodeController extends Controller
         'phone' => $auth->uuid
       ]);
       event(new \App\Events\ActivatedDevice($device));
+      return redirect('/home');
     }
 }
