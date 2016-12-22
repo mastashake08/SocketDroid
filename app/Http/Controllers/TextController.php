@@ -46,8 +46,8 @@ class TextController extends Controller
     public function show($id)
     {
         //
-        \Log::info("texts/{$id}");
-        return response()->file("texts/{$id}");
+        \Log::info(public_path("/storage/texts/{$id}"));
+        return response()->file(public_path("/storage/texts/{$id}"));
     }
 
     /**
