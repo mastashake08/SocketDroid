@@ -2,8 +2,8 @@
 var fs =  require('fs');
 
 var options = {
-    key:    fs.readFileSync('/etc/nginx/ssl/socket.jyroneparker.com/154066/server.key'),
-    cert:   fs.readFileSync('/etc/nginx/ssl/socket.jyroneparker.com/154066/server.crt')
+    key:    fs.readFileSync('/etc/nginx/ssl/socket.jyroneparker.com/154076/server.key'),
+    cert:   fs.readFileSync('/etc/nginx/ssl/socket.jyroneparker.com/154076/server.crt')
 };
 var app = require('https').createServer(options);
 var io = require('socket.io')(app);
