@@ -9,12 +9,14 @@
         <meta property="og:title"              content="Monitor And Control Devices In Real-Time" />
         <meta property="og:description"        content="SocketDroid allows you to remotely monitor and control your devices in real-time. Sign up for free today!" />
         <meta property="og:image"              content="{{url('/marketing.png')}}" />
-        <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:site" content="@mastashake08">
-        <meta name="twitter:creator" content="@mastashake08">
-        <meta name="twitter:title" content="Monitor And Control Devices In Real-Time">
+        <meta name="twitter:card" content="app">
+        <meta name="twitter:site" content="@TwitterDev">
         <meta name="twitter:description" content="SocketDroid allows you to remotely monitor and control your devices in real-time. Sign up for free today!">
-        <meta name="twitter:image" content="{{url('/marketing.png')}}">
+        <meta name="twitter:app:country" content="US">
+        <meta name="twitter:app:name:googleplay" content="SocketDroid">
+        <meta name="twitter:app:id:googleplay" content="com.socketdroid.mastashake08.socketdroid">
+        <meta name="twitter:app:url:googleplay" content="https://play.google.com/store/apps/details?id=com.socketdroid.mastashake08.socketdroid">
+
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
