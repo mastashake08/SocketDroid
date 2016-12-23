@@ -4,7 +4,27 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:url"                content="{{url('/')}}" />
+        <meta property="og:type"               content="article" />
+        <meta property="og:title"              content="Monitor And Control Devices In Real-Time" />
+        <meta property="og:description"        content="SocketDroid allows you to remotely monitor and control your devices in real-time. Sign up for free today!" />
+        <meta property="og:image"              content="{{url('/marketing.png')}}" />
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@mastashake08">
+        <meta name="twitter:creator" content="@mastashake08">
+        <meta name="twitter:title" content="Monitor And Control Devices In Real-Time">
+        <meta name="twitter:description" content="SocketDroid allows you to remotely monitor and control your devices in real-time. Sign up for free today!">
+        <meta name="twitter:image" content="{{url('/marketing.png')}}">
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
+          ga('create', 'UA-53029737-5', 'auto');
+          ga('send', 'pageview');
+
+        </script>
         <title>SocketDroid</title>
 
         <!-- Fonts -->
