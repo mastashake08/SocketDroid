@@ -130,14 +130,14 @@ for (var i = 0; i < texts.length; i++) {
       }, false);
 });
 }
-for (var i = 0; i < sendTexts.length; i++) {
-  console.log(i);
-    sendTexts[i].addEventListener('click', function(){
-      console.log(i);
+for (var j = 0; j < sendTexts.length; i++) {
+  console.log(j);
+    sendTexts[j].addEventListener('click', function(){
+      console.log(j);
       console.log(document.getElementsByClassName("action-send-text-text"));
       console.log(document.getElementsByClassName("action-send-phone"));
 
-      $.post("https://socketdroid.com/sms-send/" + $(this).data('id'),{texts:document.getElementsByClassName("action-send-text-text")[i-1].value,phone:document.getElementsByClassName("action-send-phone")[i-1].value}, function(data, status){
+      $.post("https://socketdroid.com/sms-send/" + $(this).data('id'),{texts:document.getElementsByClassName("action-send-text-text")[j-1].value,phone:document.getElementsByClassName("action-send-phone")[j-1].value}, function(data, status){
 
       }, false);
 });
