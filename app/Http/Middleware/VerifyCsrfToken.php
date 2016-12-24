@@ -19,7 +19,7 @@ class VerifyCsrfToken extends BaseVerifier
         'image-upload',
         'post-texts',
         'add-device',
-        'sms-send'
+        'sms-send/*'
 
     ];
 }
