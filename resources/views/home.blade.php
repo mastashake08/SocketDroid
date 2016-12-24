@@ -169,7 +169,7 @@ function initMap(lat,long) {
       }
       function notifyMe(message) {
         var options = {
-      icon: "https://socketdroid.com/favicon"
+      icon: "https://socketdroid.com/marketing.png"
   }
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
