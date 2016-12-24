@@ -53,3 +53,6 @@ Route::get('auth-codes',function(){
   return \App\AuthCode::all();
 });
 Route::post('/update-billing','StripeController@updateBilling');
+Route::get('billing',function(){
+  return view('billing');
+})
