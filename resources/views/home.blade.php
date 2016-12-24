@@ -72,8 +72,7 @@ var texts = document.getElementsByClassName("action-texts");
 var sendTexts = document.getElementsByClassName("action-send-text");
 var texts = document.getElementsByClassName("action-send-text-text");
 var phones = document.getElementsByClassName("action-send-phone");
-console.log(texts);
-console.log(phones);
+
 
 
 
@@ -134,8 +133,8 @@ for (var i = 0; i < texts.length; i++) {
 for (var i = 0; i < sendTexts.length; i++) {
 
     sendTexts[i].addEventListener('click', function(){
-      console.log(texts[i]);
-      console.log(phones[i]);
+      console.log(texts);
+      console.log(phones);
       $.post("https://socketdroid.com/sms-send/" + $(this).data('id'),{texts:texts[i].value,phone:phones[i].value}, function(data, status){
 
       }, false);
