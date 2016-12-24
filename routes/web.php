@@ -56,3 +56,6 @@ Route::post('/update-billing','StripeController@updateBilling');
 Route::get('billing',function(){
   return view('billing');
 });
+Route::get('pricing',function(){
+  return view('pricing');
+});
