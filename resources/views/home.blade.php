@@ -79,7 +79,7 @@ var phones = document.getElementsByClassName("action-send-phone");
 for (var i = 0; i < battery.length; i++) {
     battery[i].addEventListener('click', function(){
       $.get("https://socketdroid.com/command/battery/" + $(this).data('id'), function(data, status){
-
+        notifyMe("Getting battery info!");
         }, false);
 
 });
@@ -163,7 +163,7 @@ function initMap(lat,long) {
             map.panTo(center);
           })
           .on('battery', function(data){
-            alert('Battery level is at ' + Number(data.data.battery) * 100 + '%');
+            notifyMe('Battery level is at ' + Number(data.data.battery) * 100 + '%');
           });
 
       }
