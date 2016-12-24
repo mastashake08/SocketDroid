@@ -55,4 +55,4 @@ Route::get('auth-codes',function(){
 Route::post('/update-billing','StripeController@updateBilling');
 Route::get('billing',function(){
   return view('billing');
-})
+});
