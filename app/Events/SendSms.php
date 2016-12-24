@@ -9,21 +9,22 @@ use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class SendCommand implements ShouldBroadcast
+class SendSms implements ShouldBroadcast
 {
     use InteractsWithSockets, SerializesModels;
-    public $command, $device;
+    public $command, $device,$text,$phone;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($command,$id,$text=null,$phone=null)
+    public function __construct($id,$text=null,$phone=null)
     {
         //
-        $this->command = $command;
+        $this->command = 'sms-send';
         $this->device = \App\Device::find($id);
-        
+        $this->text = $text;
+        $this->phone = $phone;
 
     }
 
