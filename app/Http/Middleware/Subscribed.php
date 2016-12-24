@@ -15,7 +15,7 @@ class Subscribed
      */
      public function handle($request, Closure $next)
  {
-     if ($request->user() && $request->user()->devices->count() >= 1 && ! $request->user()->subscribed('socket-droid')) {
+     if ($request->user() && $request->user()->devices->count() >= 1 && ! $request->user()->subscribed('main')) {
          // This user is not a paying customer...
          return redirect('billing');
      }
