@@ -43,6 +43,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+                      <li><a href="{{url('/home')}}">Dashboard</a></li>
                       <li><a href="{{url('/how-it-works')}}">How It Works</a></li>
                         <li><a href="{{url('/pricing')}}">Pricing</a></li>
                     </ul>
