@@ -21,7 +21,7 @@
                   <ul>
                   <li><i class="fa fa-microphone" aria-hidden="true"></i> - Start Recording</li>
                   <li><i class="fa fa-microphone-slash" aria-hidden="true"></i> - Stop Recording</li>
-                  <li><i class="fa fa-microphone-map-marker" aria-hidden="true"></i> - Track Device</li>
+                  <li><i class="fa fa-map-marker" aria-hidden="true"></i> - Track Device</li>
                   <li><i class="fa fa-mobile" aria-hidden="true"></i> - Vibrate Device</li>
                   <li><i class="fa fa-battery-full" aria-hidden="true"></i> - Get Battery Info</li>
                   <li><i class="fa fa-camera-retro" aria-hidden="true"></i> - Take Photo</li>
