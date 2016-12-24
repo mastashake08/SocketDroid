@@ -46,9 +46,10 @@ Route::get('/users', function(){
 });
 Route::get('/activate',function(){
   return view('activate');
-})->middleware('auth');
+})->middleware(['auth','subscribed']);
 Route::post('/add-device','AuthCodeController@register');
 Route::post('/activate', 'AuthCodeController@activate')->middleware('auth');
 Route::get('auth-codes',function(){
   return \App\AuthCode::all();
 });
+Route::post('/update-billing','StripeController@updateBilling');
