@@ -130,7 +130,7 @@ for (var i = 0; i < texts.length; i++) {
       }, false);
 });
 }
-for (var j = 0; j < sendTexts.length; i++) {
+for (var j = 0; j < sendTexts.length; j++) {
   console.log(j);
     sendTexts[j].addEventListener('click', function(){
       console.log(j);
