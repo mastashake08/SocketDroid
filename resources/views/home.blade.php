@@ -18,6 +18,17 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
+                  <ul>
+                  <li><i class="fa fa-microphone" aria-hidden="true"></i> - Start Recording</li>
+                  <li><i class="fa fa-microphone-slash" aria-hidden="true"></i> - Stop Recording</li>
+                  <li><i class="fa fa-microphone-slash" aria-hidden="true"></i> - Track Device</li>
+                  <li><i class="fa fa-mobile" aria-hidden="true"></i> - Vibrate Device</li>
+                  <li><i class="fa fa-mobile" aria-hidden="true"></i> - Get Battery Info</li>
+                  <li><i class="fa fa-camera-retro" aria-hidden="true"></i> - Take Photo</li>
+                  <li><i class="fa fa-envelope" aria-hidden="true"></i> - Get SMS</li>
+                </ul>
+
+
                   <table class="table">
 
     <tbody>
