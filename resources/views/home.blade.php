@@ -35,7 +35,7 @@
         <br>
         <input id="" class="form-control action-send-text-text"  placeholder="Text Message Goes Here"/>
         <input id="" class="form-control action-send-phone"  placeholder="Phone"/>
-        <button class="btn btn-success btn-sm action-send-text"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        <button data-id="{{$device->id}}" class="btn btn-success btn-sm action-send-text"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
       </td>
   </tr>
       @endforeach
