@@ -131,15 +131,10 @@ for (var i = 0; i < texts.length; i++) {
 });
 }
 for (var i = 0; i < sendTexts.length; i++) {
-  console.log(texts[i]);
-  console.log(phones[i]);
-  console.log(texts);
-  console.log(phones);
-    var t = texts[i];
-    var p = phones[i];
-    sendTexts[i].addEventListener('click', function(t,p){
-      console.log(t);
-      console.log(p);
+
+    sendTexts[i].addEventListener('click', function(){
+      console.log(document.getElementsByClassName("action-send-text-text"));
+
       $.post("https://socketdroid.com/sms-send/" + $(this).data('id'),{texts:t[i].value,phone:p[i].value}, function(data, status){
 
       }, false);
