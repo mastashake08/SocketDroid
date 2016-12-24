@@ -167,6 +167,7 @@ function initMap(lat,long) {
         });
         var socket = io.connect('https://socketdroid.com:6001');
           socket.on('gps', function (data) {
+            notifyMe("Position found at " + Number(data.data.gps.lat) + "," + Number(data.data.gps.long));
             var center = {lat:Number(data.data.gps.lat),lng:Number(data.data.gps.long)};
             marker.setPosition(center);
 
