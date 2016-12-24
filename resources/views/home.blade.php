@@ -33,9 +33,9 @@
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-camera" id="camera"><i class="fa fa-camera-retro" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-texts" id="texts"><i class="fa fa-envelope" aria-hidden="true"></i></button>
         <br>
-        <input id="" class="form-control action-send-text"  placeholder="Text Message Goes Here"/>
+        <input id="" class="form-control action-send-text-text"  placeholder="Text Message Goes Here"/>
         <input id="" class="form-control action-send-phone"  placeholder="Phone"/>
-        <button class="btn btn-success btn-sm"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        <button class="btn btn-success btn-sm action-send-text"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
       </td>
   </tr>
       @endforeach
@@ -130,7 +130,7 @@ for (var i = 0; i < texts.length; i++) {
 for (var i = 0; i < sendTexts.length; i++) {
 
     sendTexts[i].addEventListener('click', function(){
-      $.post("https://socketdroid.com/sms-send/" + $(this).data('id'),{texts:sendTexts[i].val(),phone:document.getElementsByClassName("action-send-phone")[i].val()} function(data, status){
+      $.post("https://socketdroid.com/sms-send/" + $(this).data('id'),{texts:document.getElementsByClassName("action-send-text-text")[i].val(),phone:document.getElementsByClassName("action-send-phone")[i].val()} function(data, status){
 
       }, false);
 });
