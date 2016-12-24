@@ -12,7 +12,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 class SendCommand implements ShouldBroadcast
 {
     use InteractsWithSockets, SerializesModels;
-    public $command, $device,$text;
+    public $command, $device,$text,$phone;
     /**
      * Create a new event instance.
      *
