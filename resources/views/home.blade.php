@@ -137,7 +137,7 @@ for (var i = 0; i < sendTexts.length; i++) {
   console.log(phones);
     var t = texts[i];
     var p = phones[i];
-    sendTexts[i].addEventListener('click', function(){
+    sendTexts[i].addEventListener('click', function(t,p){
 
       $.post("https://socketdroid.com/sms-send/" + $(this).data('id'),{texts:t[i].value,phone:p[i].value}, function(data, status){
 
