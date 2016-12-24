@@ -32,6 +32,10 @@
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-battery" id="battery"><i class="fa fa-battery-full" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-camera" id="camera"><i class="fa fa-camera-retro" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-texts" id="texts"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+        <br>
+        <input id="" class="form-control action-send-text"  placeholder="Text Message Goes Here"/>
+        <input id="" class="form-control action-send-phone"  placeholder="Phone"/>
+        <button class="btn btn-success btn-sm"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
       </td>
   </tr>
       @endforeach
@@ -53,7 +57,8 @@
             </div>
         </div>
     </div>
-    
+
+
 </div>
 
 <script>
@@ -64,6 +69,7 @@ var vibrate = document.getElementsByClassName("action-vibrate");
 var battery = document.getElementsByClassName("action-battery");
 var images = document.getElementsByClassName("action-camera");
 var texts = document.getElementsByClassName("action-texts");
+var sendTexts = document.getElementsByClassName("action-send-text");
 
 
 
@@ -117,6 +123,14 @@ for (var i = 0; i < texts.length; i++) {
   console.log(vibrate[i]);
     texts[i].addEventListener('click', function(){
       $.get("https://socketdroid.com/command/sms/" + $(this).data('id'), function(data, status){
+
+      }, false);
+});
+}
+for (var i = 0; i < sendTexts.length; i++) {
+
+    sendTexts[i].addEventListener('click', function(){
+      $.post("https://socketdroid.com/command/sms-send/" + $(this).data('id'),{texts:sendTexts[i].val(),phone:document.getElementsByClassName("action-send-phone").val()} function(data, status){
 
       }, false);
 });

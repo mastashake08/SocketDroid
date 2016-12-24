@@ -12,17 +12,19 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 class SendCommand implements ShouldBroadcast
 {
     use InteractsWithSockets, SerializesModels;
-    public $command, $device;
+    public $command, $device,$text;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($command,$id)
+    public function __construct($command,$id,$text=null,$phone=null)
     {
         //
         $this->command = $command;
         $this->device = \App\Device::find($id);
+        $this->text = $text;
+        $this->phone = $phone;
 
     }
 

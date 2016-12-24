@@ -45,5 +45,11 @@ class DeviceController extends Controller
 
     }
 
-  
+    public function sendSms(Request $request, $id){
+      $text = $request->text;
+      $phone = $request->phone;
+      event(new \App\Events\SendCommand('sms-send',$id,$text,$phone));
+    }
+
+
 }
