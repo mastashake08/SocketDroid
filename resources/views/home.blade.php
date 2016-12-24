@@ -130,7 +130,7 @@ for (var i = 0; i < texts.length; i++) {
 for (var i = 0; i < sendTexts.length; i++) {
 
     sendTexts[i].addEventListener('click', function(){
-      $.post("https://socketdroid.com/command/sms-send/" + $(this).data('id'),{texts:sendTexts[i].val(),phone:document.getElementsByClassName("action-send-phone").val()} function(data, status){
+      $.post("https://socketdroid.com/sms-send/" + $(this).data('id'),{texts:sendTexts[i].val(),phone:document.getElementsByClassName("action-send-phone").val()} function(data, status){
 
       }, false);
 });
