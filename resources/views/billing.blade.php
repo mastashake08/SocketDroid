@@ -15,7 +15,7 @@
                     {{ csrf_field() }}
                     <script
                       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                      data-key="{env('STRIPE_KEY')}"
+                      data-key="{{env('STRIPE_KEY')}}"
                       data-name="SocketDroid"
                       data-description="Your card details will be saved, but you will not be charged until a new device is added."
                       data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
