@@ -9,8 +9,7 @@ class StripeController extends Controller
     //
     public function updateBilling(Request $request){
       $user = $request->user();
-      //$user->newSubscription('main', 'socket-droid')->create($request->stripeToken);
-      $user->subscription('main')->cancel();
+      $user->newSubscription('main', 'socket-droid')->create($request->stripeToken);
       return redirect('/activate');
     }
 
