@@ -26,6 +26,7 @@
                   <li><i class="fa fa-battery-full" aria-hidden="true"></i> - Get Battery Info</li>
                   <li><i class="fa fa-camera-retro" aria-hidden="true"></i> - Take Photo</li>
                   <li><i class="fa fa-envelope" aria-hidden="true"></i> - Get SMS</li>
+                  <li><i class="fa fa-close" aria-hidden="true"></i> - Delete Device From Account</li>
                 </ul>
 
 
@@ -43,6 +44,11 @@
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-battery" id="battery"><i class="fa fa-battery-full" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-camera" id="camera"><i class="fa fa-camera-retro" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-texts" id="texts"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+        <form method="post" action="/device">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <button data-id="{{$device->id}}" type="submit" class="btn btn-sm btn-danger" id="delete"><i class="fa fa-close" aria-hidden="true"></i></button>
+      </form>
         <br>
         Send A Text
         <input id="" class="form-control action-send-text-text"  placeholder="Text Message Goes Here"/>
