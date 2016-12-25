@@ -11,9 +11,11 @@
                 <div class="panel-body">
                   In order to use SocketDroid on more than one device please
                   update your billing information
+                  <br>
                   <form action="/update-billing" method="POST">
                     @if(auth()->user()->card_brand != null)
-                    Current card on file: {{auth()->user()->card_brand}} {{auth()->user()->card_last_4}}
+                    Current card on file: {{auth()->user()->card_brand}} {{auth()->user()->card_last_four}}
+                    <br>
                     @endif
                     {{ csrf_field() }}
                     <script
