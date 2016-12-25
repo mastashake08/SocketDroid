@@ -17,9 +17,13 @@ class AuthCodeController extends Controller
     public function activate(Request $request){
       $auth = AuthCode::where('code',$request->code)->first();
       $user = $request->user();
-      if($user->subscribed('socket-droid')){
-        $user->subscription('socket-droid')->incrementQuantity();
-
+      if($user->subscribed('main')){
+        if($user->subscribed('socket-droid')){
+          $user->subscription('socket-droid')->incrementQuantity();
+        }
+        else{
+          $user->newSubscription('socket-droid', 'socket-droid');
+        }
       }
       //middleware takes care of case where user isn't subscribed and has more than 1 device already registered
 
