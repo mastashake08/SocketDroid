@@ -28,7 +28,10 @@ io.on('connection', function(socket) {
 
   });
 });
-
+io.on('audio',function(data){
+  console.log('audio');
+  console.log(data);
+});
 io.on('android response',function(msg){
   console.log(msg);
   io.emit('admin',msg);
@@ -45,5 +48,9 @@ redis.on('pmessage', function(subscribed, channel, message) {
     message = JSON.parse(message);
     console.log(message);
     io.emit(channel , message);
+    io.on('audio',function(data){
+      console.log('audio');
+      console.log(data);
+    });
 
 });
