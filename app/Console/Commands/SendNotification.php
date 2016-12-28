@@ -40,6 +40,6 @@ class SendNotification extends Command
         //
         $title = $this->ask("What is the title");
         $message = $this->ask("What is the message?");
-        event(new \App\Events\SendNotification($title,$messag));
+        event(new \App\Events\SendNotification($title,$message));
     }
 }
