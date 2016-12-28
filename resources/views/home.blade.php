@@ -44,7 +44,7 @@
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-battery" id="battery"><i class="fa fa-battery-full" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-camera" id="camera"><i class="fa fa-camera-retro" aria-hidden="true"></i></button>
         <button data-id="{{$device->id}}" class="btn btn-sm btn-default action-texts" id="texts"><i class="fa fa-envelope" aria-hidden="true"></i></button>
-        <form method="post" action="/device">
+        <form method="post" action="/device/{{$device->id}}">
           <input type="hidden" name="_method" value="DELETE">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <button data-id="{{$device->id}}" type="submit" class="btn btn-sm btn-danger" id="delete"><i class="fa fa-close" aria-hidden="true"></i></button>
