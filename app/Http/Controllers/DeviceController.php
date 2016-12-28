@@ -52,7 +52,7 @@ class DeviceController extends Controller
     }
 
     public function destroy($id){
-      DeviceController::find($id)->delete();
+      Device::destroy($id);
       return redirect('home');
     }
 
