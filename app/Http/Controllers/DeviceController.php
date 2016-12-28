@@ -51,7 +51,7 @@ class DeviceController extends Controller
       event(new \App\Events\SendSms($id,$text,$phone));
     }
 
-    public function delete($id){
+    public function destroy($id){
       DeviceController::destroy($id);
       return redirect('home');
     }
