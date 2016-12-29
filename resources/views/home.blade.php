@@ -54,6 +54,7 @@
         <input id="" class="form-control action-send-text-text"  placeholder="Text Message Goes Here"/>
         <input id="" class="form-control action-send-phone"  placeholder="Phone"/>
         <button data-id="{{$device->id}}" class="btn btn-success btn-sm action-send-text"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        <br>
         Send A Push Notification
         <input id="" class="form-control action-push-title"  placeholder="Push Message Goes Here"/>
         <input id="" class="form-control action-push-text"  placeholder="Push Message Goes Here"/>
