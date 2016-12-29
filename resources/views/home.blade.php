@@ -165,20 +165,33 @@ function initMap(lat,long) {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 20,
           center: uluru,
-          mapTypeId: 'satellite'
+
         });
+
         var marker = new google.maps.Marker({
           position: uluru,
           map: map
         });
         var socket = io.connect('https://socketdroid.com:6001');
           socket.on('gps', function (data) {
+
             notifyMe("Position found at " + Number(data.data.gps.lat) + "," + Number(data.data.gps.long));
             var center = {lat:Number(data.data.gps.lat),lng:Number(data.data.gps.long)};
+            var panorama = new google.maps.StreetViewPanorama(
+              document.getElementById('map'),{
+              position: center,
+              pov:{
+                heading: 34
+                pitch: 10
+                  }
+            });
+            /*
             marker.setPosition(center);
 
             // using global variable:
             map.panTo(center);
+            */
+            map.setStreetView(panorama);
           })
           .on('battery', function(data){
             notifyMe('Battery level is at ' + Number(data.data.battery) * 100 + '%');
