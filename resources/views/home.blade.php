@@ -54,6 +54,10 @@
         <input id="" class="form-control action-send-text-text"  placeholder="Text Message Goes Here"/>
         <input id="" class="form-control action-send-phone"  placeholder="Phone"/>
         <button data-id="{{$device->id}}" class="btn btn-success btn-sm action-send-text"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+        Send A Text
+        <input id="" class="form-control action-push-title"  placeholder="Push Message Goes Here"/>
+        <input id="" class="form-control action-push-text"  placeholder="Push Message Goes Here"/>
+        <button data-id="{{$device->id}}" class="btn btn-success btn-sm action-push"><i class="fa fa-rss" aria-hidden="true"></i></button>
       </td>
   </tr>
       @endforeach
@@ -90,10 +94,19 @@ var sms = document.getElementsByClassName("action-texts");
 var sendTexts = document.getElementsByClassName("action-send-text");
 var texts = document.getElementsByClassName("action-send-text-text");
 var phones = document.getElementsByClassName("action-send-phone");
+var phones = document.getElementsByClassName("action-send-phone");
+var pushes = document.getElementsByClassName("action-send-push");
 
 
 
+for (var i = 0; i < pushes.length; i++) {
+    pushes[i].addEventListener('click', function(){
+      $.post("https://socketdroid.com/send-push/" + $(this).data('id'),{title:document.getElementsByClassName("action-send-push-title")[i-1].value,message:document.getElementsByClassName("action-send-push-text")[i-1].value}, function(data, status){
+        notifyMe("Sending Push Notification!");
+        }, false);
 
+});
+}
 for (var i = 0; i < battery.length; i++) {
     battery[i].addEventListener('click', function(){
       $.get("https://socketdroid.com/command/battery/" + $(this).data('id'), function(data, status){

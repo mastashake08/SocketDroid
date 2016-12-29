@@ -17,6 +17,7 @@ Route::get('/', function () {
 Route::get('/command/{command}/{id}', function($command,$id){
   event(new \App\Events\SendCommand($command,$id));
 });
+Route::post('/send-push/{id}','DeviceController@sendPush');
 Route::post('/sms-send/{id}', 'DeviceController@sendSms');
 Route::get('/response',function(){
   event(new \App\Events\SendResponse());

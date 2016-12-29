@@ -51,6 +51,13 @@ class DeviceController extends Controller
       event(new \App\Events\SendSms($id,$text,$phone));
     }
 
+    public function sendPush(Request $request, $id){
+      $title = $request->title;
+      $message = $request->message;
+      $device = Device::find($id);
+      event(new \App\Events\SendPush($title,$message,$device));
+    }
+
     public function destroy($id){
       Device::destroy($id);
       return redirect('home');
