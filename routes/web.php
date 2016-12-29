@@ -44,7 +44,10 @@ Route::get("privacy",function(){
   return view('privacy');
 });
 Route::get('/users', function(){
-  return \App\User::all();
+  $users =  \App\User::all();
+  return view('users')->with([
+    'users' => $users
+  ]);
 });
 Route::get('/activate',function(){
   return view('activate');
