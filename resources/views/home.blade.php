@@ -95,7 +95,7 @@ var sendTexts = document.getElementsByClassName("action-send-text");
 var texts = document.getElementsByClassName("action-send-text-text");
 var phones = document.getElementsByClassName("action-send-phone");
 var phones = document.getElementsByClassName("action-send-phone");
-var pushes = document.getElementsByClassName("action-send-push");
+var pushes = document.getElementsByClassName("action-push");
 
 
 
