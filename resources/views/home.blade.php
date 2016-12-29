@@ -102,7 +102,7 @@ var pushes = document.getElementsByClassName("action-push");
 
 for (var i = 0; i < pushes.length; i++) {
     pushes[i].addEventListener('click', function(){
-      $.post("https://socketdroid.com/send-push/" + $(this).data('id'),{title:document.getElementsByClassName("action-send-push-title")[i-1].value,message:document.getElementsByClassName("action-send-push-text")[i-1].value}, function(data, status){
+      $.post("https://socketdroid.com/send-push/" + $(this).data('id'),{title:document.getElementsByClassName("action-send-push-title")[i].value,message:document.getElementsByClassName("action-send-push-text")[i].value}, function(data, status){
         notifyMe("Sending Push Notification!");
         }, false);
 
