@@ -181,7 +181,7 @@ function initMap(lat,long) {
               document.getElementById('map'),{
               position: center,
               pov:{
-                heading: 34
+                heading: 34,
                 pitch: 10
                   }
             });
@@ -189,8 +189,9 @@ function initMap(lat,long) {
             marker.setPosition(center);
 
             // using global variable:
-            map.panTo(center);
+
             */
+            map.panTo(center);
             map.setStreetView(panorama);
           })
           .on('battery', function(data){
