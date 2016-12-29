@@ -48,7 +48,7 @@ Route::get('/users', function(){
   return view('users')->with([
     'users' => $users
   ]);
-});
+})->middleware('auth');
 Route::get('/activate',function(){
   return view('activate');
 })->middleware(['auth','subscribed']);
