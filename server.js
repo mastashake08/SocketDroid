@@ -25,16 +25,20 @@ io.on('connection', function(socket) {
     console.log('Connected');
     socket.on('disconnect', function(){
     console.log('user disconnected');
-
+    socket.on('android response',function(msg){
+      console.log(msg);
+      io.emit('admin',msg);
+    });
+    socket.on('audio',function(data){
+      console.log('audio');
+      console.log(data);
+    });
   });
+
 });
 io.on('audio',function(data){
   console.log('audio');
   console.log(data);
-});
-io.on('android response',function(msg){
-  console.log(msg);
-  io.emit('admin',msg);
 });
 io.on('Toast Receieved',function(msg){
   console.log(msg);
@@ -48,9 +52,6 @@ redis.on('pmessage', function(subscribed, channel, message) {
     message = JSON.parse(message);
     console.log(message);
     io.emit(channel , message);
-    io.on('audio',function(data){
-      console.log('audio');
-      console.log(data);
-    });
+
 
 });
