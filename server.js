@@ -22,28 +22,19 @@ function handler(req, res) {
 
 io.on('connection', function(socket) {
     //
+    socket.on('test', function (data) {
+		//connect
+		console.log(data);
+
+	});
     console.log('Connected');
     socket.on('disconnect', function(){
     console.log('user disconnected');
-    socket.on('android response',function(msg){
-      console.log(msg);
-      io.emit('admin',msg);
-    });
-    socket.on('audio',function(data){
-      console.log('audio');
-      console.log(data);
-    });
+
   });
 
 });
-io.on('audio',function(data){
-  console.log('audio');
-  console.log(data);
-});
-io.on('Toast Receieved',function(msg){
-  console.log(msg);
-  io.emit('admin',msg);
-});redis.psubscribe('*', function(err, count) {
+redis.psubscribe('*', function(err, count) {
     //
 });
 
