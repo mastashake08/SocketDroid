@@ -22,11 +22,10 @@ function handler(req, res) {
 
 io.on('connection', function(socket) {
     //
-    socket.on('android response', function (data) {
-		//connect
-		console.log(data);
-
-	});
+  
+  socket.on('audio',function(data){
+    console.log(data);
+  });
     console.log('Connected');
     socket.on('disconnect', function(){
     console.log('user disconnected');
