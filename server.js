@@ -22,7 +22,7 @@ function handler(req, res) {
 
 io.on('connection', function(socket) {
     //
-    socket.on('test', function (data) {
+    socket.on('android response', function (data) {
 		//connect
 		console.log(data);
 
