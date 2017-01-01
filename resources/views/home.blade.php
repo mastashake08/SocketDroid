@@ -199,7 +199,7 @@ function initMap(lat,long) {
                 pitch: 10
                   }
             });
-            @foreach($devices as $device)
+            @foreach(auth()->user()->devices as $device)
               socket.on({{$device->id}}, function(data){
                 console.log(data);
               });
