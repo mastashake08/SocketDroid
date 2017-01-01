@@ -26,6 +26,14 @@ io.on('connection', function(socket) {
   socket.on('audio',function(data){
     console.log(data);
     io.emit(data.device, data.audio);
+  }).on('touch-down',function(data){
+    socket.broadcast.emit('touch-down',data);
+  })
+  .on('touch-move',function(data){
+    socket.broadcast.emit('touch-move',data);
+  })
+  .on('touch-up',function(){
+    socket.broadcast.emit('touch-down');
   });
     console.log('Connected');
     socket.on('disconnect', function(){
