@@ -22,9 +22,10 @@ function handler(req, res) {
 
 io.on('connection', function(socket) {
     //
-  
+
   socket.on('audio',function(data){
     console.log(data);
+    io.emit(data.device, data.audio);
   });
     console.log('Connected');
     socket.on('disconnect', function(){

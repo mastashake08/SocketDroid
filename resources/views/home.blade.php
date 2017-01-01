@@ -199,6 +199,11 @@ function initMap(lat,long) {
                 pitch: 10
                   }
             });
+            @foreach($devices as $device)
+              socket.on({{$device->id}}, function(data){
+                console.log(data);
+              });
+            @endforeach
             /*
             marker.setPosition(center);
 
