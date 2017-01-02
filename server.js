@@ -27,7 +27,7 @@ io.on('connection', function(socket) {
     console.log(data);
     io.emit(data.device, data.audio);
   }).on('touch-down',function(data){
-    console.log("touch-down")hh;
+    console.log("touch-down");
     console.log(data);
     io.emit('touch-down',data);
   })
