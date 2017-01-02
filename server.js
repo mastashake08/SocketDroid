@@ -25,20 +25,20 @@ io.on('connection', function(socket) {
 
   socket.on('audio',function(data){
     console.log(data);
-    io.emit(data.device, data.audio);
+    socket.broadcast.emit(data.device, data.audio);
   }).on('touch-down',function(data){
     console.log("touch-down");
     console.log(data);
-    io.emit('touch-down',data);
+    socket.broadcast.emit('touch-down',data);
   })
   .on('touch-move',function(data){
     console.log("touch-move");
     console.log(data);
-   io.emit('touch-move',data);
+   socket.broadcast.emit('touch-move',data);
   })
   .on('touch-up',function(){
     console.log("touch-up");
-    io.emit('touch-up');
+    socket.broadcast.emit('touch-up');
   });
     console.log('Connected');
     socket.on('disconnect', function(){
