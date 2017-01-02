@@ -37,7 +37,7 @@ io.on('connection', function(socket) {
    io.emit(data.room,data);
   })
   .on('touch-up',function(data){
-    console.log("touch-up");
+    console.log(data);
     io.emit(data.room,data);
   });
     console.log('Connected');
