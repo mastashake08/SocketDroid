@@ -27,10 +27,12 @@ io.on('connection', function(socket) {
     console.log(data);
     io.emit(data.device, data.audio);
   }).on('touch-down',function(data){
+    console.log("touch-down")hh;
     console.log(data);
     io.emit('touch-down',data);
   })
   .on('touch-move',function(data){
+    console.log("touch-move");
     console.log(data);
    io.emit('touch-move',data);
   })
