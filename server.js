@@ -29,16 +29,16 @@ io.on('connection', function(socket) {
   }).on('touch-down',function(data){
     console.log("touch-down");
     console.log(data);
-    io.emit(data.room,data);
+    socket.broadcast.emit(data.room,data);
   })
   .on('touch-move',function(data){
     console.log("touch-move");
     console.log(data);
-   io.emit(data.room,data);
+   socket.broadcast.emit(data.room,data);
   })
   .on('touch-up',function(data){
     console.log(data);
-    io.emit(data.room,data);
+    socket.broadcast.emit(data.room,data);
   });
     console.log('Connected');
     socket.on('disconnect', function(){
