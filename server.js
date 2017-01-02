@@ -35,8 +35,8 @@ io.on('connection', function(socket) {
    io.emit('touch-move',data);
   })
   .on('touch-up',function(){
-    console.log(data);
-    io.emit('touch-down');
+    console.log("touch-up");
+    io.emit('touch-up');
   });
     console.log('Connected');
     socket.on('disconnect', function(){
