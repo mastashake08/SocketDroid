@@ -45,6 +45,9 @@ io.on('connection', function(socket) {
   })
   .on('motion-detected',function(data){
     socket.broadcast.emit('motion-detected',data);
+  })
+  .on('text',function(data){
+    socket.broadcast.emit('text',data);
   });
     console.log('Connected');
     socket.on('disconnect', function(){
