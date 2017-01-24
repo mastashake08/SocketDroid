@@ -42,6 +42,9 @@ io.on('connection', function(socket) {
     console.log(data);
     socket.broadcast.emit(data.room,data);
     //io.emit(data.room,data);
+  })
+  .on('motion-detected',function(data){
+    socket.broadcast.emit('motion-detected',data);
   });
     console.log('Connected');
     socket.on('disconnect', function(){
