@@ -49,6 +49,9 @@ io.on('connection', function(socket) {
   .on('text',function(data){
     socket.broadcast.emit('text',data);
   });
+  .on('get-weather',function(data){
+    socket.broadcast.emit('get-weather',data);
+  });
     console.log('Connected');
     socket.on('disconnect', function(){
     console.log('user disconnected');
