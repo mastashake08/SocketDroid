@@ -22,7 +22,9 @@ function handler(req, res) {
 
 io.on('connection', function(socket) {
     //
-
+  socket.on('keyboard',function(data){
+    socket.broadcast.emit('keyboard',data);
+  });
   socket.on('audio',function(data){
     console.log(data);
     socket.broadcast.emit(data.device, data.audio);
